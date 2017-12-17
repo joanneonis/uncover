@@ -1,0 +1,31 @@
+
+<section *ngIf="!selectedArtwork">
+  ronde 1
+
+  draai aan het wiel
+<!-- <div *ngFor="let a of artworks">
+  {{a.id}}: {{a.data | json}}
+</div> -->
+<br>
+  <button (click)="randomArtwork()">random schilderij</button>
+
+  <br><br>
+</section>
+
+<section *ngIf="selectedArtwork && !showCategory">
+  scan artwork
+
+  {{selectedArtwork | async | json}}
+
+  <br>
+  <button (click)="showCategory = true">Volgende</button>
+</section>
+
+<section *ngIf="showCategory">
+
+    {{ activeCategory | async | json}}
+
+    <a [routerLink]="'/answer'" class="btn btn-primary">Volgende</a>
+</section>
+
+

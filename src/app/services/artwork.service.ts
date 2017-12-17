@@ -8,7 +8,7 @@ export class ArtworkService {
   constructor(private db: AngularFirestore) {}
 
   getArtworks() {
-    return this.db.collection('artworks').valueChanges();
+    return this.db.collection('artworks').snapshotChanges();
   }
 
   getById (id: string) {
