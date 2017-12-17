@@ -1,0 +1,23 @@
+
+<section>
+  ronde 1
+
+  draai aan het wiel
+
+  <br><br>
+  {{artworkParam}}
+  {{selectedArtwork | async | json}}
+</section>
+
+<section>
+  scan artwork
+</section>
+
+<section>
+    <pre>
+      {{ categories | async |json}}
+    </pre>
+
+    <a [routerLink]="'/answer'" class="btn btn-primary">Volgende</a>
+</section>
+
