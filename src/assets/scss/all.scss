@@ -1,1 +1,19 @@
 
+//functions
+@import 'functions/colors';
+
+//setting imports
+@import 'settings/type';
+@import 'settings/colors';
+
+//component imports
+@import 'components/wheel';
+@import 'components/type/font';
+
+
+
+//troep
+
+body{
+  color: color(blue, 500);
+}
