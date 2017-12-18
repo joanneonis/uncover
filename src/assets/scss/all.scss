@@ -1,4 +1,18 @@
 
+body{
+  margin: 0;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+//vendor
+@import '../vendor/web-fonts-with-css/scss/fontawesome.scss';
+
+//mixins
+@import 'mixins/handy';
+
 //functions
 @import 'functions/colors';
 
@@ -9,6 +23,11 @@
 //component imports
 @import 'components/wheel';
 @import 'components/type/font';
+@import 'components/btn/basic';
+@import 'components/btn/social';
+
+//layout
+@import 'layout/login';
 
 
 

@@ -1,0 +1,18 @@
+
+
+.btn[data-social]{
+  color: white;
+  transition: background .2s;
+}
+
+$social-map: map-get($colors, social);
+
+@each $name, $color in $social-map {
+  .btn[data-social='#{$name}']{
+    background: $color;
+
+    &:hover{
+      background: darken($color, 15%);
+    }
+  }
+}

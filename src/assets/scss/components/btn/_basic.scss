@@ -1,0 +1,45 @@
+
+%btn-reset{
+	outline: 0!important;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: none;
+	box-shadow: none;
+	cursor: pointer;
+	display: inline-block;
+	text-align: center;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	white-space: nowrap;
+	vertical-align: middle;
+	margin-bottom: 0;
+	text-decoration: none;
+}
+
+
+.btn{
+  @extend %btn-reset;
+  padding: 7px 12px;
+  background-color: color(gray, 200);
+  border-radius: 50px;
+
+  .svg-inline--fa {
+      margin: 0 3px;
+  }
+
+  &-xs{
+    font-size: .8em;
+  }
+  &-sm{
+    font-size: 1.2em;
+  }
+  &-lg{
+    font-size: 1.2em;
+    padding: 12px 10px;
+  }
+}

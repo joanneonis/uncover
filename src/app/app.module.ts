@@ -13,7 +13,6 @@ import { ArtworkService } from './services/artwork.service';
 import { LoginComponent } from './login/login.component';
 import { LoginWelcomeComponent } from './login-welcome/login-welcome.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
