@@ -3,13 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { AnswerComponent } from './rounds/answer/answer.component';
 import { AnswersOthersComponent } from './rounds/answers-others/answers-others.component';
 import { IntroComponent } from './rounds/intro/intro.component';
+import { LoginComponent } from './login/login.component';
+import { LoginWelcomeComponent } from './login-welcome/login-welcome.component';
 
 
 const routes: Routes = [
   {
     path: '',
+    component: LoginComponent,
+  },
+  {
+    path: 'intro',
     component: IntroComponent,
-    pathMatch: 'full'
   },
   {
     path: 'intro/:artworkId',
@@ -25,8 +30,8 @@ const routes: Routes = [
     component: AnswersOthersComponent
   },
   {
-    path: 'new-route',
-    component: AnswersOthersComponent
+    path: 'welkom',
+    component: LoginWelcomeComponent
   }
 ];
 

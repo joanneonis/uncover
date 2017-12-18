@@ -10,6 +10,8 @@ import { IntroComponent } from './rounds/intro/intro.component';
 import { AnswerComponent } from './rounds/answer/answer.component';
 import { AnswersOthersComponent } from './rounds/answers-others/answers-others.component';
 import { ArtworkService } from './services/artwork.service';
+import { LoginComponent } from './login/login.component';
+import { LoginWelcomeComponent } from './login-welcome/login-welcome.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ArtworkService } from './services/artwork.service';
     AppComponent,
     IntroComponent,
     AnswerComponent,
-    AnswersOthersComponent
+    AnswersOthersComponent,
+    LoginComponent,
+    LoginWelcomeComponent
   ],
   imports: [
     BrowserModule,

@@ -26,8 +26,10 @@
 </section>
 
 <section *ngIf="showCategory">
-
-    {{ activeCategory | async | json}}
+    <h3>{{ activeCategory?.Title }}</h3>
+    <p>
+      {{ activeCategory | async | json}}
+    </p>
 
     <a [routerLink]="'/answer'" class="btn btn-primary">Volgende</a>
 </section>
