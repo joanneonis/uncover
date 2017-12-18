@@ -1,0 +1,11 @@
+.welcome-text{
+    @include centralize;
+    width: calc(100% - 30px);
+    text-align: center;
+    top: 30vh;
+   
+   img{
+    margin-bottom: 30px;
+   }
+  }
+
