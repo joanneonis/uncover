@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'answers-others',
     component: AnswersOthersComponent
+  },
+  {
+    path: 'new-route',
+    component: AnswersOthersComponent
   }
 ];
 
