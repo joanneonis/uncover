@@ -5,6 +5,7 @@ import { AnswersOthersComponent } from './rounds/answers-others/answers-others.c
 import { IntroComponent } from './rounds/intro/intro.component';
 import { LoginComponent } from './login/login.component';
 import { LoginWelcomeComponent } from './login-welcome/login-welcome.component';
+import { DiscoverComponent } from './discover/discover.component';
 
 
 const routes: Routes = [

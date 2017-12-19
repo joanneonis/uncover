@@ -21,19 +21,18 @@ body{
 @import 'settings/colors';
 
 //component imports
-@import 'components/wheel';
 @import 'components/type/font';
+@import 'components/type/type';
+@import 'components/type/headings';
 @import 'components/btn/basic';
 @import 'components/btn/social';
+@import 'components/page-elements/page-header';
+@import 'components/page-elements/page-nav';
 
 //layout
 @import 'layout/login';
 @import 'layout/login-welcome';
+@import 'layout/wheel';
 
 
 
-//troep
-
-body{
-  color: color(blue, 500);
-}

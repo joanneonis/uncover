@@ -46,4 +46,5 @@ export class IntroComponent implements OnInit {
 
     this.router.navigate([`intro/${randomArtwork.id}`]);
   }
+
 }
