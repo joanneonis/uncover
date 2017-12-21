@@ -13,6 +13,10 @@ import { ArtworkService } from './services/artwork.service';
 import { LoginComponent } from './login/login.component';
 import { LoginWelcomeComponent } from './login-welcome/login-welcome.component';
 import { DiscoverComponent } from './discover/discover.component';
+import { RemixComponent } from './rounds/remix/remix.component';
+import { LiteratureComponent } from './rounds/literature/literature.component';
+import { BattlesCompletedComponent } from './rounds/battles-completed/battles-completed.component';
+import { ShareResultComponent } from './rounds/share-result/share-result.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { DiscoverComponent } from './discover/discover.component';
     AnswersOthersComponent,
     LoginComponent,
     LoginWelcomeComponent,
-    DiscoverComponent
+    DiscoverComponent,
+    RemixComponent,
+    LiteratureComponent,
+    BattlesCompletedComponent,
+    ShareResultComponent
   ],
   imports: [
     BrowserModule,

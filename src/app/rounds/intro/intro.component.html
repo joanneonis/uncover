@@ -3,11 +3,26 @@
     <div class="page-heading">
       <h1>Ronde 1</h1>
       <p>Om de battle te starten moet iemand aan het rad draaien.</p>
+
+      <h4>Hier een tijdelijk menuutje zodat je snel naar de pagina's kan</h4>
+      <nav>
+        <ul>
+          <li [routerLink]="'/intro'"> intro (huidig)</li>
+          <li [routerLink]="'/answer'">answer</li>
+          <li [routerLink]="'/answers-others'">answers-others</li>
+          <li [routerLink]="'/remix'">remix</li>
+          <li [routerLink]="'/literature'">literature</li>
+          <li [routerLink]="'/battles-completed'">battles klaar</li>
+          <li [routerLink]="'/share-result'">share</li>
+          <li [routerLink]="'/discover'">ontdek achteraf</li>
+        </ul>
+      </nav>
     </div>
 
 <!-- <div *ngFor="let a of artworks">
   {{a.id}}: {{a.data | json}}
 </div> -->
+
 
   <button class="btn btn-primary page-next" (click)="randomArtwork()">Volgende</button>
 
