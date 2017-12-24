@@ -6,16 +6,16 @@
 }
 
 #scene > div{
-  height: 100vh;
-  width: 100vw;
+  height: 102vh;
+  width: 102vw;
 }
 
 #scene > div > div{
   position: absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right: 0;
+  top:-1vh;
+  bottom:-1vh;
+  left:-1vw;
+  right: -1vw;
   background-size: cover;
   background-position: center;
 }

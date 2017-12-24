@@ -4,7 +4,7 @@ import { CategoryService } from '../../services/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArtworkService } from '../../services/artwork.service';
 import { AngularFirestoreDocument, AngularFirestoreCollection, DocumentChangeAction } from 'angularfire2/firestore';
-
+import ColorThief from 'color-thief-standalone';
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
@@ -15,6 +15,9 @@ export class IntroComponent implements OnInit {
   activeCategory: any = this.categoryService.$activeCategory;
   selectedArtwork: any;
   artworks: any[];
+  showCategory;
+  colorThief = new ColorThief();
+
 
   //  activeCategory = localStorage.getItem('activeCategory');
 
@@ -36,6 +39,9 @@ export class IntroComponent implements OnInit {
     this.artworkService.getArtworks().subscribe(a => {
       this.artworks = a.map(b => ({ id: b.payload.doc.id, data: b.payload.doc.data() }));
     });
+
+    const test = document.getElementById('testImage').src;
+    console.log(this.colorThief.getColor(test.src));
   }
 
   randomArtwork() {
