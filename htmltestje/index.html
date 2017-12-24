@@ -8,11 +8,11 @@
 </head>
 <style>
 #container{
-  background: #ccc;
+  background: red;
   border: 3px solid yellow;
   position: relative;
-  width: 1100px;
-  height: 110px;
+  width: 412px;
+  height: 732px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -38,20 +38,13 @@ var images = [{url:"https://upload.wikimedia.org/wikipedia/commons/e/ec/Atomic_r
 
 //based on: https://stackoverflow.com/questions/45187086/drawing-image-on-canvas-in-loop-not-working
 var canvas = document.getElementById('scratch');
-canvas.width = 1100;
-canvas.height = 110;
+canvas.width = 412;
+canvas.height = 732;
 var wheel = canvas.getContext("2d");
 var images = [
     "https://placeholdit.imgix.net/~text?txtsize=60&txt=1&w=100&h=100",
     "https://placeholdit.imgix.net/~text?txtsize=60&txt=2&w=100&h=100",
     "https://placeholdit.imgix.net/~text?txtsize=60&txt=3&w=100&h=100",
-    "https://placeholdit.imgix.net/~text?txtsize=60&txt=4&w=100&h=100",
-    "https://placeholdit.imgix.net/~text?txtsize=60&txt=5&w=100&h=100",
-    "https://placeholdit.imgix.net/~text?txtsize=60&txt=6&w=100&h=100",
-    "https://placeholdit.imgix.net/~text?txtsize=60&txt=7&w=100&h=100",
-    "https://placeholdit.imgix.net/~text?txtsize=60&txt=8&w=100&h=100",
-    "https://placeholdit.imgix.net/~text?txtsize=60&txt=9&w=100&h=100",
-    "https://placeholdit.imgix.net/~text?txtsize=60&txt=10&w=100&h=100",
   ]
   .map(function(i) {
     var img = document.createElement("img");
