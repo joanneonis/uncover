@@ -40,8 +40,8 @@ export class IntroComponent implements OnInit {
       this.artworks = a.map(b => ({ id: b.payload.doc.id, data: b.payload.doc.data() }));
     });
 
-    const test = document.getElementById('testImage').src;
-    console.log(this.colorThief.getColor(test.src));
+   // const test = document.getElementById('testImage').src;
+ //   console.log(this.colorThief.getColor(test.src));
   }
 
   randomArtwork() {
