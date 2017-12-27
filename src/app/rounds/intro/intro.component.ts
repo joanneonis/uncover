@@ -291,7 +291,7 @@ export class IntroComponent implements AfterViewInit {
         console.log(element.name, 'done!');
         element.done = true;
 
-        this.router.navigate([`intro/${element.name}`]);
+        this.router.navigate([`intro/${this.artworks[this.obj.indexOf(element)].id}`]);
       }
     }
   }
@@ -339,7 +339,6 @@ export class IntroComponent implements AfterViewInit {
     this.categoryService.nextCategory();
 
     // this.router.navigate([`intro/${randomArtwork.id}`]);
-    console.log(this.artworks);
   }
 
 }
