@@ -26,3 +26,11 @@
   // width: 100vw;
   // height: 100vh;
 }
+
+.scan-artwork{
+  img{
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+  }
+}

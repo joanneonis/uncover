@@ -17,7 +17,7 @@
   width="412"
   height="732"></canvas>
 
-  <!-- <button class="btn btn-primary page-next" (click)="randomArtwork()">Volgende</button> -->
+  <button class="btn btn-primary page-next" (click)="randomArtwork()">Volgende</button>
 </section>
 <!--
 <nav>
@@ -46,6 +46,9 @@
   <div class="page-heading">
     <h1>Scan het kunstwerk</h1>
     <p>Mik de camera op het kunstwerk en de rest gaat vanzelf.</p>
+    <div class="scan-artwork">
+      <img [src]="(selectedArtwork | async).image" alt="">
+    </div>
   </div>
 
 

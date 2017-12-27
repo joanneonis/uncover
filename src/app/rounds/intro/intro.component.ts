@@ -29,23 +29,23 @@ export class IntroComponent implements AfterViewInit {
   image        = new Image();
   brush        = new Image();
   obj = [{
-    name: 'heks',
-    xStart: 0,
-    yStart: 0,
-    xEnd: 415,
-    yEnd: 170,
-    pixels: {
-      data: [],
+      name: 'Lijst met appels',
+      xStart: 120,
+      yStart: 470,
+      xEnd: 170,
+      yEnd: 120,
+      pixels: {
+        data: [],
+      },
+      pdata: [],
+      l: 0,
+      total: 0,
+      count: 0,
+      setfilledInPixels: 0,
+      done: false,
     },
-    pdata: [],
-    l: 0,
-    total: 0,
-    count: 0,
-    setfilledInPixels: 0,
-    done: false,
-  },
   {
-    name: 'in bol oranje',
+    name: 'In oranje bol',
     xStart: 40,
     yStart: 130,
     xEnd: 180,
@@ -61,23 +61,7 @@ export class IntroComponent implements AfterViewInit {
     done: false,
   },
   {
-    name: 'bouwwerk',
-    xStart: 210,
-    yStart: 180,
-    xEnd: 415,
-    yEnd: 150,
-    pixels: {
-      data: [],
-    },
-    pdata: [],
-    l: 0,
-    total: 0,
-    count: 0,
-    setfilledInPixels: 0,
-    done: false,
-  },
-  {
-    name: 'parels',
+    name: 'Oester met parels',
     xStart: 0,
     yStart: 210,
     xEnd: 220,
@@ -93,7 +77,23 @@ export class IntroComponent implements AfterViewInit {
     done: false,
   },
   {
-    name: 'parels',
+    name: 'symboliek hel',
+    xStart: 0,
+    yStart: 470,
+    xEnd: 410,
+    yEnd: 260,
+    pixels: {
+      data: [],
+    },
+    pdata: [],
+    l: 0,
+    total: 0,
+    count: 0,
+    setfilledInPixels: 0,
+    done: false,
+  },
+  {
+    name: 'Kont met bloem',
     xStart: 0,
     yStart: 380,
     xEnd: 220,
@@ -109,7 +109,23 @@ export class IntroComponent implements AfterViewInit {
     done: false,
   },
   {
-    name: 'eieren',
+    name: 'Heks met uil',
+    xStart: 0,
+    yStart: 0,
+    xEnd: 415,
+    yEnd: 170,
+    pixels: {
+      data: [],
+    },
+    pdata: [],
+    l: 0,
+    total: 0,
+    count: 0,
+    setfilledInPixels: 0,
+    done: false,
+  },
+  {
+    name: 'Ei en schelp',
     xStart: 220,
     yStart: 330,
     xEnd: 220,
@@ -125,11 +141,11 @@ export class IntroComponent implements AfterViewInit {
     done: false,
   },
   {
-    name: 'appels',
-    xStart: 120,
-    yStart: 470,
-    xEnd: 170,
-    yEnd: 120,
+    name: 'Glazen bol bouwwerk',
+    xStart: 210,
+    yStart: 180,
+    xEnd: 415,
+    yEnd: 150,
     pixels: {
       data: [],
     },
@@ -140,22 +156,7 @@ export class IntroComponent implements AfterViewInit {
     setfilledInPixels: 0,
     done: false,
   },
-  {
-    name: 'symboliek',
-    xStart: 0,
-    yStart: 470,
-    xEnd: 410,
-    yEnd: 260,
-    pixels: {
-      data: [],
-    },
-    pdata: [],
-    l: 0,
-    total: 0,
-    count: 0,
-    setfilledInPixels: 0,
-    done: false,
-  }];
+];
 
 
   //  activeCategory = localStorage.getItem('activeCategory');
@@ -166,7 +167,7 @@ export class IntroComponent implements AfterViewInit {
     private router: Router) {}
 
     ngAfterViewInit() {
-    console.log(this.canvas);
+  //  console.log(this.canvas);
     this.ctx = this.canvas.nativeElement.getContext('2d');
 
     this.route.params.subscribe(a => {
@@ -288,7 +289,7 @@ export class IntroComponent implements AfterViewInit {
 //      console.log(element.name, "is zover:", element.setfilledInPixels + '%');
 
       if (element.setfilledInPixels > 80 && element.done === false) {
-        console.log(element.name, 'done!');
+      //  console.log(element.name, 'done!');
         element.done = true;
 
         this.router.navigate([`intro/${this.artworks[this.obj.indexOf(element)].id}`]);
@@ -297,7 +298,7 @@ export class IntroComponent implements AfterViewInit {
   }
 
   handleMouseDown(e) {
-    console.log(e);
+    // console.log(e);
     this.isDrawing = true;
     this.lastPoint = this.getMouse(e, this.canvas);
   }
@@ -333,6 +334,7 @@ export class IntroComponent implements AfterViewInit {
   }
 
   randomArtwork() {
+    console.log(this.artworks);
     const randomArtwork = this.artworks[Math.floor(Math.random() * this.artworks.length)];
 
     // // set category/round
