@@ -3,3 +3,20 @@
 
 }
 
+#container{
+  background-image: url('/assets/img/link.png');
+  background-size: 100% 100%;
+  position: relative;
+  width: 412px;
+  height: 732px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+#scratch{
+  position: absolute;
+  top:0;
+  left:0;
+}

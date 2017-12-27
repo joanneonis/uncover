@@ -1,34 +1,46 @@
 
 <section class="section-wheel" *ngIf="!selectedArtwork">
-    <div class="page-heading">
-      <h1>Ronde 1</h1>
-      <p>Om de battle te starten moet iemand aan het rad draaien.</p>
 
-      <h4>Hier een tijdelijk menuutje zodat je snel naar de pagina's kan</h4>
-      <nav>
-        <ul>
-          <li [routerLink]="'/intro'"> intro (huidig)</li>
-          <li [routerLink]="'/answer'">answer</li>
-          <li [routerLink]="'/answers-others'">answers-others</li>
-          <li [routerLink]="'/remix'">remix</li>
-          <li [routerLink]="'/literature'">literature</li>
-          <li [routerLink]="'/battles-completed'">battles klaar</li>
-          <li [routerLink]="'/share-result'">share</li>
-          <li [routerLink]="'/discover'">ontdek achteraf</li>
-        </ul>
-      </nav>
-    </div>
+  <div id="container">
 
-    <img src="assets/img/layers/back.png" id="testImage" alt="" #colorTest>
+  </div>
+
+
+  <canvas
+  id="scratch"
+  (mousedown)="handleMouseDown($event)"
+  (mousemove)="handleMouseMove($event)"
+  (mouseup)="handleMouseUp($event)"
+  (touchmove)="handleMouseMove($event)"
+  (touchend)="handleMouseUp($event)"
+  #canvas
+  width="412"
+  height="732"></canvas>
+
+  <button class="btn btn-primary page-next" (click)="randomArtwork()">Volgende</button>
+</section>
+<!--
+<nav>
+  <ul>
+    <li [routerLink]="'/intro'"> intro (huidig)</li>
+    <li [routerLink]="'/answer'">answer</li>
+    <li [routerLink]="'/answers-others'">answers-others</li>
+    <li [routerLink]="'/remix'">remix</li>
+    <li [routerLink]="'/literature'">literature</li>
+    <li [routerLink]="'/battles-completed'">battles klaar</li>
+    <li [routerLink]="'/share-result'">share</li>
+    <li [routerLink]="'/discover'">ontdek achteraf</li>
+  </ul>
+</nav> -->
+
+ <!-- <img src="assets/img/layers/back.png" id="testImage" alt="" #colorTest> -->
 
 <!-- <div *ngFor="let a of artworks">
   {{a.id}}: {{a.data | json}}
 </div> -->
 
 
-  <button class="btn btn-primary page-next" (click)="randomArtwork()">Volgende</button>
-
-</section>
+  <!-- <button class="btn btn-primary page-next" (click)="randomArtwork()">Volgende</button> -->
 
 <section *ngIf="selectedArtwork && !showCategory">
   <div class="page-heading">
