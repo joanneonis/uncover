@@ -26,11 +26,18 @@ body{
 @import 'components/type/headings';
 @import 'components/btn/basic';
 @import 'components/btn/social';
+@import 'components/form';
 @import 'components/page-elements/page-header';
 @import 'components/page-elements/page-nav';
 
 //layout
+@import 'layout/page-base';
 @import 'layout/login';
 @import 'layout/login-welcome';
 @import 'layout/wheel';
 @import 'layout/remix';
+@import 'layout/scan';
+@import 'layout/category';
+@import 'layout/page-question';
+@import 'layout/anwsers';
+

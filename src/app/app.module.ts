@@ -17,7 +17,7 @@ import { RemixComponent } from './rounds/remix/remix.component';
 import { LiteratureComponent } from './rounds/literature/literature.component';
 import { BattlesCompletedComponent } from './rounds/battles-completed/battles-completed.component';
 import { ShareResultComponent } from './rounds/share-result/share-result.component';
-
+import 'hammerjs';
 @NgModule({
   declarations: [
     AppComponent,

@@ -164,7 +164,8 @@ export class IntroComponent implements AfterViewInit {
   constructor(private categoryService: CategoryService,
     private artworkService: ArtworkService,
     private route: ActivatedRoute,
-    private router: Router) {}
+    private router: Router) {
+    }
 
     ngAfterViewInit() {
   //  console.log(this.canvas);
@@ -308,6 +309,7 @@ export class IntroComponent implements AfterViewInit {
   }
 
   handleMouseMove(e) {
+    console.log('helleuw');
     if (!this.isDrawing) { return; }
 
     e.preventDefault();

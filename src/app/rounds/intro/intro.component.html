@@ -44,10 +44,9 @@
 
 <section *ngIf="selectedArtwork && !showCategory">
   <div class="page-heading">
-    <h1>Scan het kunstwerk</h1>
+    <h1 class="h3">Scan het kunstwerk</h1>
     <p>Mik de camera op het kunstwerk en de rest gaat vanzelf.</p>
-    <div class="scan-artwork">
-      <img [src]="(selectedArtwork | async).image" alt="">
+    <div class="scan-artwork" [style.background-image]="'url(' + (selectedArtwork | async).image + ')'">
     </div>
   </div>
 
@@ -58,13 +57,15 @@
 
 </section>
 
-<section *ngIf="showCategory">
-    <h3>{{ activeCategory.Title }}</h3>
-    <p>
-      {{ activeCategory | async | json}}
-    </p>
+<section class="page-category" *ngIf="showCategory">
+    <div class="page-content page-category-inner">
+        <h2 class="type">{{ (activeCategory | async).Title }}</h2>
+        <p>
+          {{ (activeCategory | async).Text}}
+        </p>
 
-    <a [routerLink]="'/answer'" class="btn btn-primary">Volgende</a>
+        <a [routerLink]="'/answer'" class="btn btn-primary">Volgende</a>
+    </div>
 </section>
 
 
