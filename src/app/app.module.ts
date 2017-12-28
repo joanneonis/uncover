@@ -18,6 +18,7 @@ import { LiteratureComponent } from './rounds/literature/literature.component';
 import { BattlesCompletedComponent } from './rounds/battles-completed/battles-completed.component';
 import { ShareResultComponent } from './rounds/share-result/share-result.component';
 import 'hammerjs';
+import { QuestionService } from './services/question.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,7 @@ import 'hammerjs';
     AngularFirestoreModule,
     AppRoutingModule
   ],
-  providers: [CategoryService, ArtworkService],
+  providers: [CategoryService, ArtworkService, QuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

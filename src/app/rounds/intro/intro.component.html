@@ -46,8 +46,7 @@
   <div class="page-heading">
     <h1 class="h3">Scan het kunstwerk</h1>
     <p>Mik de camera op het kunstwerk en de rest gaat vanzelf.</p>
-    <div class="scan-artwork" [style.background-image]="'url(' + (selectedArtwork | async).image + ')'">
-    </div>
+    <div class="scan-artwork" [style.background-image]="'url(' + (selectedArtwork).image + ')'"></div>
   </div>
 
 
@@ -64,8 +63,6 @@
           {{ (activeCategory | async).Text}}
         </p>
 
-        <a [routerLink]="'/answer'" class="btn btn-primary">Volgende</a>
+        <a [routerLink]="'answer'" class="btn btn-primary">Volgende</a>
     </div>
 </section>
-
-

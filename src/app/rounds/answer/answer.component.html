@@ -11,7 +11,10 @@
   <div class="page-anwser">
       <label for="anwser">Jouw antwoord</label>
       <input name="anwser" type="text">
+
+{{activeQuestion | json}}
       <a class="btn btn-primary" [routerLink]="'/answers-others'">volgende</a>
   </div>
 
 </section>
+

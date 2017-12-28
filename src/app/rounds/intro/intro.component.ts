@@ -171,9 +171,9 @@ export class IntroComponent implements AfterViewInit {
   //  console.log(this.canvas);
     this.ctx = this.canvas.nativeElement.getContext('2d');
 
-    this.route.params.subscribe(a => {
-      if (a['artworkId']) {
-        this.selectedArtwork = this.artworkService.getById(a['artworkId']);
+    this.route.data.subscribe(a => {
+      if (a['artwork']) {
+        this.selectedArtwork = a['artwork'];
       }
     });
 
@@ -290,7 +290,7 @@ export class IntroComponent implements AfterViewInit {
 //      console.log(element.name, "is zover:", element.setfilledInPixels + '%');
 
       if (element.setfilledInPixels > 90 && element.done === false) {
-      //  console.log(element.name, 'done!');
+        console.log(element.name, `intro/${this.artworks[this.obj.indexOf(element)].id}`);
         element.done = true;
 
 
