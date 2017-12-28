@@ -346,7 +346,7 @@ export class IntroComponent implements AfterViewInit {
     // // set category/round
     this.categoryService.nextCategory();
 
-    // this.router.navigate([`intro/${randomArtwork.id}`]);
+    this.router.navigate([`intro/${randomArtwork.id}`]);
   }
 
 }
