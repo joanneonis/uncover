@@ -6,11 +6,7 @@
 
         <div class="page-anwsers">
             <ul class="anwsers">
-                <li [routerLink]="'/remix'"><a>Erotiek</a></li>
-                <li [routerLink]="'/remix'"><a>Ongemakkelijkheid</a></li>
-                <li [routerLink]="'/remix'"><a>Beestigheid</a></li>
-                <li [routerLink]="'/remix'"><a>Ontrouw</a></li>
-                <li [routerLink]="'/remix'"><a>Mysterie</a></li>
+                <li [routerLink]="'remix'" *ngFor="let a of answers"><a>{{a.Answer}}</a></li>
               </ul>
         </div>
     </div>

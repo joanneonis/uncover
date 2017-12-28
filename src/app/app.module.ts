@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
@@ -19,6 +20,7 @@ import { BattlesCompletedComponent } from './rounds/battles-completed/battles-co
 import { ShareResultComponent } from './rounds/share-result/share-result.component';
 import 'hammerjs';
 import { QuestionService } from './services/question.service';
+import { AnswerService } from './services/answer.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,11 +37,12 @@ import { QuestionService } from './services/question.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase, 'uncover'),
     AngularFirestoreModule,
     AppRoutingModule
   ],
-  providers: [CategoryService, ArtworkService, QuestionService],
+  providers: [CategoryService, ArtworkService, QuestionService, AnswerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

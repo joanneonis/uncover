@@ -9,7 +9,17 @@ export class QuestionService implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const artworkId = route.params['artworkId'];
+    const questionId = route.params['questionId'];
+
+    if (questionId) {
+      return new Promise((r, reject) => {
+        this.getById(artworkId, questionId).first().subscribe((a) => {r(a); }, reject);
+      });
+    }
+
     const artwork = this.getQuestions(artworkId);
+
+
 
     return new Promise((r, reject) => {
       artwork.first().subscribe((a) => {r(a); }, reject);
@@ -23,6 +33,6 @@ export class QuestionService implements Resolve<any> {
   }
 
   getById (artworkId: string, id: string) {
-    return this.db.doc(`/artworks/${artworkId}/Questions/${id}`).valueChanges();
+    return this.db.doc(`/artworks/${artworkId}/Questions/${id}`).snapshotChanges();
   }
 }

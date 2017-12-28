@@ -12,6 +12,7 @@ import { RemixComponent } from './rounds/remix/remix.component';
 import { ShareResultComponent } from './rounds/share-result/share-result.component';
 import { ArtworkService } from './services/artwork.service';
 import { QuestionService } from './services/question.service';
+import { AnswerService } from './services/answer.service';
 
 
 const routes: Routes = [
@@ -44,15 +45,24 @@ const routes: Routes = [
     }
   },
   {
-    path: 'intro/:artworkId/answers-others',
-    component: AnswersOthersComponent
+    path: 'intro/:artworkId/answer/:questionId',
+    component: AnswersOthersComponent,
+    resolve: {
+      artwork: ArtworkService,
+      question: QuestionService,
+      answers: AnswerService
+    }
   },
   {
-    path: 'intro/:artworkId/literature',
-    component: LiteratureComponent
+    path: 'intro/:artworkId/answer/:questionId/literature',
+    component: LiteratureComponent,
+    resolve: {
+      artwork: ArtworkService,
+      question: QuestionService
+    }
   },
   {
-    path: 'intro/:artworkId/remix',
+    path: 'intro/:artworkId/answer/:questionId/remix',
     component: RemixComponent
   },
   {

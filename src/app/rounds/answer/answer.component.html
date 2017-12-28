@@ -5,15 +5,15 @@
 
   </div>
   <div class="page-content page-question-inner">
-    <h2>De modellen zorgen voor een gevoel van...</h2>
+    <h2>{{activeQuestion.data.Title}}</h2>
   </div>
 
   <div class="page-anwser">
       <label for="anwser">Jouw antwoord</label>
-      <input name="anwser" type="text">
+      <input name="anwser" type="text" [(ngModel)]="answer">
 
 {{activeQuestion | json}}
-      <a class="btn btn-primary" [routerLink]="'/answers-others'">volgende</a>
+      <a class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a>
   </div>
 
 </section>

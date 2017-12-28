@@ -11,6 +11,7 @@ export class AnswerComponent implements OnInit {
   selectedArtwork: any;
   questions: any[];
   activeCategory = 0;
+  answer = '';
 
   get activeQuestion(): any {
     if (this.activeCategory === 0 || !this.questions) {
