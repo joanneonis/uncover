@@ -1,5 +1,14 @@
 
-h1{
+@include h{
+  font-family: $heading-font;
+  font-weight: 500;
+}
+
+h2, .h2 {
+  font-size: 1.6em;
+}
+
+h3, .h3{
   font-size: 1.1em;
   margin-bottom: .5em;
 }

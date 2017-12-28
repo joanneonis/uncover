@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="page-heading">
     <h1>Wat anderen denken:</h1>
   </div>
@@ -5,11 +6,31 @@
 <strong>
   vraag
 </strong>
+=======
 
-<ul>
-    <!-- <li class="text" *ngFor="let item of items | async">
+>>>>>>> e63005eab308d24c48d45e4a1ee852cdfd36800d
+
+<section class="page-anwser page-question">
+    <div class="page-inner">
+        <h2>De modellen zorgen voor een gevoel van...</h2>
+
+        <div class="page-anwsers">
+            <ul class="anwsers">
+                <li [routerLink]="'remix'" *ngFor="let a of answers"><a>{{a.Answer}}</a></li>
+              </ul>
+        </div>
+    </div>
+
+  <!-- <button [routerLink]="'/remix'" class="btn page-next btn-primary" > volgende</button> -->
+</section>
+
+
+<!-- <ul>
+    <li class="text" *ngFor="let item of items | async">
         {{item.test}}
-    </li>  -->
+    </li>
 </ul>
+-->
 
-<button [routerLink]="'/remix'" class="btn btn-primary" > volgende</button>
+
+

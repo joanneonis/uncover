@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AnswerService } from '../../services/answer.service';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: 'app-answers-others',
@@ -6,10 +9,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./answers-others.component.css']
 })
 export class AnswersOthersComponent implements OnInit {
+selectedArtwork: any;
+question: any;
+answers: any[];
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private answerService: AnswerService,
+    private db: AngularFirestore
+  ) { }
 
   ngOnInit() {
+    this.route.data.subscribe(a => {
+      console.log(a);
+        this.selectedArtwork = a['artwork'];
+        this.answers = a['answers'];
+        this.question = {
+          id: a['question'].payload.id,
+          data: a['question'].payload.data(),
+          ref: a['question'].payload.ref
+        };
+        // this.categoryService.$activeCategory.subscribe(b => {
+        //   this.activeCategory = b;
+        // });
+    });
   }
 
 }

@@ -2,9 +2,22 @@
   <h1>Wat denk jij?</h1>
 </div>
 
-<strong>
-  vraag
-</strong>
 
-<input type="text">
-<a [routerLink]="'/answers-others'">volgende</a>
+<section class="page-question">
+  <div class="page-inner">
+
+  </div>
+  <div class="page-content page-question-inner">
+    <h2>{{activeQuestion.data.Title}}</h2>
+  </div>
+
+  <div class="page-anwser">
+      <label for="anwser">Jouw antwoord</label>
+      <input name="anwser" type="text" [(ngModel)]="answer">
+
+{{activeQuestion | json}}
+      <a class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a>
+  </div>
+
+</section>
+

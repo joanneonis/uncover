@@ -5,24 +5,22 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 
 import 'rxjs/add/operator/first';
 @Injectable()
-export class ArtworkService implements Resolve<any> {
+export class AnswerService implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const artworkId = route.params['artworkId'];
-    const artwork = this.getById(artworkId);
+    const questionId = route.params['questionId'];
+
+    const artwork = this.getAnswers(artworkId, questionId);
 
     return new Promise((r, reject) => {
-      artwork.first().subscribe((a) => {r(a); }, reject);
+      artwork.first().subscribe((a) => { r(a); }, reject);
     });
   }
 
   constructor(private db: AngularFirestore) {}
 
-  getArtworks() {
-    return this.db.collection('artworks').snapshotChanges();
-  }
-
-  getById (id: string) {
-    return this.db.doc(`/artworks/${id}`).valueChanges();
+  getAnswers(artworkId: string, questionId: string) {
+    return this.db.collection(`artworks/${artworkId}/Questions/${questionId}/Answers`).valueChanges();
   }
 }
