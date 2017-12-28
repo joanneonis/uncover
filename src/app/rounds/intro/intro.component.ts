@@ -288,9 +288,13 @@ export class IntroComponent implements AfterViewInit {
       // element.filledInPixels = element.filledInPixels || 0;
 //      console.log(element.name, "is zover:", element.setfilledInPixels + '%');
 
-      if (element.setfilledInPixels > 80 && element.done === false) {
+      if (element.setfilledInPixels > 90 && element.done === false) {
       //  console.log(element.name, 'done!');
         element.done = true;
+
+
+        // set category/round
+        this.categoryService.nextCategory();
 
         this.router.navigate([`intro/${this.artworks[this.obj.indexOf(element)].id}`]);
       }
