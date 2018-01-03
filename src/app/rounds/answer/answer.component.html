@@ -15,7 +15,6 @@
       <label for="anwser">Jouw antwoord</label>
       <input name="anwser" type="text" [(ngModel)]="answer">
 
-{{activeQuestion | json}}
       <a class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a>
   </div>
 

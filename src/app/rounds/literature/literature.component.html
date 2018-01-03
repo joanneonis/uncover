@@ -1,20 +1,11 @@
-<!-- <div class="page-heading">
-    <h1>Literatuur</h1>
-  </div>
-
-
-<p>
-  literature works!
-  {{question | json}}
-</p>
-
-<button [routerLink]="'/battles-completed'" class="btn btn-primary" > volgende</button> -->
-
 
 <div class="welcome-text">
   <div class="page-inner welcome-text-inner">
     <h3>Literatuur</h3>
-    <img src="./assets/img/paper-3.png" alt="papier">
+    <h3>{{question.data.LiteratureTitle}}</h3>
+    <p>{{question.data.LiteratureText}}</p>
+    <img src="./assets/img/paper-1.png" alt="papier">
     <a [routerLink]="'/battles-completed'" class="btn btn-primary">volgende</a>
   </div>
 </div>
+

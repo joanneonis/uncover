@@ -1,8 +1,7 @@
 
 <section class="page-anwser page-question">
     <div class="page-inner">
-        <h2>De modellen zorgen voor een gevoel van...</h2>
-
+        <h2>{{question.data.Title}}</h2>
         <div class="page-anwsers">
             <ul class="anwsers">
                 <li [routerLink]="'remix'" *ngFor="let a of answers"><a>{{a.Answer}}</a></li>
