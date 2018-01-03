@@ -5,14 +5,17 @@
 
   </div>
 
+  <!--   (touchmove)="handleTouchMove($event)"
+  (touchend)="handleMouseUp($event)"
+  (press)="handleTouchMove($event)"
+ -->
 
   <canvas
   id="scratch"
   (mousedown)="handleMouseDown($event)"
   (mousemove)="handleMouseMove($event)"
   (mouseup)="handleMouseUp($event)"
-  (touchmove)="handleMouseMove($event)"
-  (touchend)="handleMouseUp($event)"
+  (touchmove)="handleTouchMove($event)"
   #canvas
   width="412"
   height="732"></canvas>
