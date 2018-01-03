@@ -273,8 +273,8 @@ export class IntroComponent implements AfterViewInit {
       mx = (e.pageX) - offsetX;
       my = (e.pageY) - offsetY;
       } else if (e instanceof TouchEvent) {
-        mx = (e.touches[0].clientX) - offsetX;
-        my = (e.touches[0].clientY) - offsetY;
+        mx = (e.changedTouches[0].clientX) - offsetX;
+        my = (e.changedTouches[0].clientY) - offsetY;
         }
 
     return {x: mx, y: my};
@@ -290,7 +290,7 @@ export class IntroComponent implements AfterViewInit {
 //      console.log(element.name, "is zover:", element.setfilledInPixels + '%');
 
       if (element.setfilledInPixels > 90 && element.done === false) {
-        console.log(element.name, `intro/${this.artworks[this.obj.indexOf(element)].id}`);
+        // console.log(element.name, `intro/${this.artworks[this.obj.indexOf(element)].id}`);
         element.done = true;
 
 
@@ -303,13 +303,14 @@ export class IntroComponent implements AfterViewInit {
   }
 
   handleMouseDown(e) {
-    // console.log(e);
+    console.log(e);
     this.isDrawing = true;
     this.lastPoint = this.getMouse(e, this.canvas);
   }
 
   handleMouseMove(e) {
-    console.log('helleuw');
+    // console.log(e.changedTouches[0].pageX);
+    // console.log('helleuw');
     if (!this.isDrawing) { return; }
 
     e.preventDefault();
@@ -321,6 +322,45 @@ export class IntroComponent implements AfterViewInit {
     let x = 0, y = 0;
 
     for (let i = 0; i < dist; i++) {
+      x = this.lastPoint.x + (Math.sin(angle) * i) - 25;
+      y = this.lastPoint.y + (Math.cos(angle) * i) - 25;
+      this.ctx.globalCompositeOperation = 'destination-out';
+      this.ctx.drawImage(this.brush, x, y);
+    }
+
+    this.lastPoint = currentPoint;
+    this.handlePercentage(this.getFilledInPixels(32));
+  }
+
+  handleTouchMove(e) {
+   // console.log(e);
+    // console.log(e.changedTouches[0].pageX);
+    // console.log('helleuw');
+   // if (!this.isDrawing) { return; }
+
+    e.preventDefault();
+
+    this.lastPoint = this.getMouse(e, this.canvas);
+
+    let offsetX = 0, offsetY = 0, mx = 0, my = 0;
+    mx = (e.changedTouches[0].clientX) - offsetX;
+    my = (e.changedTouches[0].clientY) - offsetY;
+
+    // const currentPoint = this.getMouse(e, this.canvas),
+    //     dist = this.distanceBetween(this.lastPoint, currentPoint),
+    //     angle = this.angleBetween(this.lastPoint, currentPoint);
+
+    const currentPoint = {x: mx, y: my},
+      dist = this.distanceBetween(this.lastPoint, currentPoint),
+      angle = this.angleBetween(this.lastPoint, currentPoint);
+
+    let x = 0, y = 0;
+
+    // console.log(e.changedTouches);
+
+// for (let i = 0; i < dist; i++) {
+
+    for (let i = 0; i < 50; i++) {
       x = this.lastPoint.x + (Math.sin(angle) * i) - 25;
       y = this.lastPoint.y + (Math.cos(angle) * i) - 25;
       this.ctx.globalCompositeOperation = 'destination-out';

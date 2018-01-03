@@ -5,19 +5,22 @@
 
   </div>
 
+  <!--   (touchmove)="handleTouchMove($event)"
+  (touchend)="handleMouseUp($event)"
+  (press)="handleTouchMove($event)"
+ -->
 
   <canvas
   id="scratch"
   (mousedown)="handleMouseDown($event)"
   (mousemove)="handleMouseMove($event)"
   (mouseup)="handleMouseUp($event)"
-  (touchmove)="handleMouseMove($event)"
-  (touchend)="handleMouseUp($event)"
+  (touchmove)="handleTouchMove($event)"
   #canvas
   width="412"
   height="732"></canvas>
 
-  <button class="btn btn-primary page-next" (click)="randomArtwork()">Volgende</button>
+  <!-- <button class="btn btn-primary page-next" (click)="randomArtwork()">Volgende</button> -->
 </section>
 <!--
 <nav>
