@@ -22,9 +22,11 @@ export class CategoryService {
   }
 
   nextCategory() {
-    const nextCategory = (+localStorage.getItem('activeCategory') || 0) + 1;
+   // const nextCategory = (+localStorage.getItem('activeCategory') || 0) + 1;
+   // localStorage.setItem('activeCategory', `${nextCategory}`);
+    const nextCategory = (+localStorage.getItem('activeCategory') || 0);
 
-    localStorage.setItem('activeCategory', `${nextCategory}`);
+    localStorage.setItem('activeCategory', '2');
     this.$activeCategory.next(this._categories[(+localStorage.getItem('activeCategory') - 1)]);
   }
 }
