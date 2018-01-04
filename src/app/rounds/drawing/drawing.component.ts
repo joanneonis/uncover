@@ -40,17 +40,22 @@ export class DrawingComponent implements AfterViewInit {
 
     const that = this;
     document.body.addEventListener('touchstart', function (e) {
-      console.log(e);
-      [that.lastX, that.lastY] = [e.changedTouches[0].clientX, (e.changedTouches[0].clientY - that.canvasTop)];
-      that.isDrawing = true;
+      if (e.target === that.canvas.nativeElement) {
+        [that.lastX, that.lastY] = [e.changedTouches[0].clientX, (e.changedTouches[0].clientY - that.canvasTop)];
+        that.isDrawing = true;
+      }
     }, false);
 
     document.body.addEventListener('touchend', function (e) {
-      that.isDrawing = false;
+      if (e.target === that.canvas.nativeElement) {
+        that.isDrawing = false;
+      }
     }, false);
     document.body.addEventListener('touchmove', function (e) {
-      that.canvasTop = (<HTMLCanvasElement>e.target).offsetTop;
-      that.touchDraw(e);
+      if (e.target === that.canvas.nativeElement) {
+        that.canvasTop = (<HTMLCanvasElement>e.target).offsetTop;
+        that.touchDraw(e);
+      }
     }, false);
   }
 
@@ -102,9 +107,9 @@ export class DrawingComponent implements AfterViewInit {
     this.draw(e);
   }
 
-  setLineWidth(e: any) {
-    console.log(e.target.value);
-    this.lineWidth = e.target.value;
+  setLineWidth(e) {
+    console.log(e);
+    this.lineWidth = e;
   }
 
   clearCanvas() {
