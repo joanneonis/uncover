@@ -1,5 +1,4 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-
+import { Component, AfterViewInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-drawing',
@@ -8,6 +7,10 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 })
 export class DrawingComponent implements AfterViewInit {
   @ViewChild('canvas') canvas: ElementRef;
+  @Output() inputFilled: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() inputEmpty: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+
 
   // base code from https://codepen.io/luisgra/pen/ypJXPd, but turned it into angular and made some changes
   ctx;
@@ -63,6 +66,8 @@ export class DrawingComponent implements AfterViewInit {
   draw(e) {
     if (!this.isDrawing) {return; }
 
+    this.inputFilled.emit(true);
+
     this.ctx.strokeStyle = this.hue;
     this.ctx.lineWidth = this.lineWidth;
 
@@ -79,6 +84,8 @@ export class DrawingComponent implements AfterViewInit {
 
   touchDraw(e) {
     if (!this.isDrawing) {return; }
+
+    this.inputFilled.emit(true);
 
     this.ctx.strokeStyle = this.hue;
     this.ctx.lineWidth = this.lineWidth;
@@ -115,6 +122,7 @@ export class DrawingComponent implements AfterViewInit {
 
   clearCanvas() {
     this.ctx.clearRect(0, 0, 400, 600);
+    this.inputEmpty.emit(false);
   }
 
   saveToFire() {

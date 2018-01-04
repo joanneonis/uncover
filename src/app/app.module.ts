@@ -21,8 +21,7 @@ import { ShareResultComponent } from './rounds/share-result/share-result.compone
 import 'hammerjs';
 import { QuestionService } from './services/question.service';
 import { AnswerService } from './services/answer.service';
-import { DrawingComponent } from './rounds/drawing/drawing.component';
-import { DrawComponent } from './rounds/draw/draw.component';
+import { DrawingComponent } from './rounds/answer/drawing/drawing.component';
 import { SoundComponent } from './rounds/answer/sound/sound.component';
 @NgModule({
   declarations: [
@@ -38,7 +37,6 @@ import { SoundComponent } from './rounds/answer/sound/sound.component';
     BattlesCompletedComponent,
     ShareResultComponent,
     DrawingComponent,
-    DrawComponent,
     SoundComponent
   ],
   imports: [

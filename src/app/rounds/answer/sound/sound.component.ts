@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
 import * as RecordRTC from 'recordrtc';
 
 // followed tutorial on medium:
@@ -11,6 +11,8 @@ import * as RecordRTC from 'recordrtc';
 })
 export class SoundComponent implements AfterViewInit {
   @ViewChild('video') video: ElementRef;
+  @Output() inputFilled: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   recordRTC;
   stream;
 
@@ -67,6 +69,7 @@ export class SoundComponent implements AfterViewInit {
     const stream = this.stream;
     stream.getAudioTracks().forEach(track => track.stop());
     stream.getVideoTracks().forEach(track => track.stop());
+    this.inputFilled.emit(true);
   }
   processVideo(audioVideoWebMURL) {
     const video: HTMLVideoElement = this.video.nativeElement;

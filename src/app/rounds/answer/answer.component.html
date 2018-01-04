@@ -20,11 +20,13 @@
 
 <div *ngIf="activeQuestion.data?.Type === 'drawing'">
     <h2>{{activeQuestion.data.Title}}</h2>
-    <app-drawing ></app-drawing>
+    <app-drawing (inputFilled)="handleInputFilled($event)" (inputEmpty)="handleInputEmpty($event)"></app-drawing>
+    <a *ngIf="drawing" class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a>
 </div>
 
 <div *ngIf="activeQuestion.data?.Type === 'sound'">
     <h2>{{activeQuestion.data.Title}}</h2>
-    <app-sound></app-sound>
+    <app-sound (inputFilled)="handleInputFilled($event)"></app-sound>
+    <a *ngIf="drawing" class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a>
 </div>
 
