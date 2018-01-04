@@ -21,6 +21,8 @@ import { ShareResultComponent } from './rounds/share-result/share-result.compone
 import 'hammerjs';
 import { QuestionService } from './services/question.service';
 import { AnswerService } from './services/answer.service';
+import { DrawingComponent } from './rounds/drawing/drawing.component';
+import { DrawComponent } from './rounds/draw/draw.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { AnswerService } from './services/answer.service';
     RemixComponent,
     LiteratureComponent,
     BattlesCompletedComponent,
-    ShareResultComponent
+    ShareResultComponent,
+    DrawingComponent,
+    DrawComponent
   ],
   imports: [
     BrowserModule,

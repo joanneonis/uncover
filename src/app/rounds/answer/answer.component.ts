@@ -18,7 +18,7 @@ export class AnswerComponent implements OnInit {
       return null;
     }
 
-    return this.questions.filter(a => a.data.CategorieId == (+localStorage.getItem('activeCategory') - 1))[0];
+    return this.questions.filter(a => a.data.CategorieId == (+localStorage.getItem('activeCategory')))[0];
 
   }
 

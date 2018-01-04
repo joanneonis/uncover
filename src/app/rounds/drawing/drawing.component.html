@@ -1,0 +1,27 @@
+
+  <div class="controls">
+    <div class="control">
+      <label for="width">Line Width:</label>
+      <input type="range" name="width" min="1" max="50" value="5" id="width" (blur)="setLineWidth($event)">
+    </div>
+    <div class="control">
+      <ul>
+        <li *ngFor="let color of colors" [style.backgroundColor]="color" (click)="hue = color"></li>
+      </ul>
+    </div>
+    <div class="control button">
+      <input type="button" (click)="clearCanvas()" value="Reset">
+
+      <button (click)="saveToFire()">save</button>
+      <button [attr.download]="img">download</button>
+    </div>
+  </div>
+
+  <div id="box">
+    <canvas
+    (mousedown)="handleMouseDown($event)"
+    (mousemove)="handleMouseMove($event)"
+    (mouseup)="handleMouseUp($event)"
+    #canvas
+    width="400" height="600"></canvas>
+  </div>

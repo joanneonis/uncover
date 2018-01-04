@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute , Router } from '@angular/router';
 
 @Component({
   selector: 'app-literature',
@@ -9,9 +9,11 @@ import { ActivatedRoute } from '@angular/router';
 export class LiteratureComponent implements OnInit {
 selectedArtwork: any;
 question: any;
+round = localStorage.getItem('activeCategory');
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -24,5 +26,9 @@ question: any;
         };
     });
   }
-
+  nextRound() {
+    // const nextCategory = (+localStorage.getItem('activeCategory') || 0) + 1;
+    // localStorage.setItem('activeCategory', `${nextCategory}`);
+    this.router.navigate([`/intro`]);
+  }
 }

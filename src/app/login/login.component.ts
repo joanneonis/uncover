@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
 
     const scene = document.getElementById('scene');
     const parallaxInstance = new Parallax(scene);
+
+    localStorage.setItem('activeCategory', '0');
   }
 
 }

@@ -1,11 +1,12 @@
 
 <div class="welcome-text">
   <div class="page-inner welcome-text-inner">
-    <h3>Literatuur</h3>
+    <h3>Literatuur  round: {{round}}</h3>
     <h3>{{question.data.LiteratureTitle}}</h3>
     <p>{{question.data.LiteratureText}}</p>
     <img src="./assets/img/paper-1.png" alt="papier">
-    <a [routerLink]="'/battles-completed'" class="btn btn-primary">volgende</a>
+    <a *ngIf="round != '8'" (click)="nextRound()" class="btn btn-primary">Volgende</a>
+    <a *ngIf="round == '8'" [routerLink]="'/battles-completed'" class="btn btn-primary">volgende</a>
   </div>
 </div>
 
