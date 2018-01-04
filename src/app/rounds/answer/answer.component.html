@@ -3,7 +3,7 @@
 </div>
 
 
-<!-- <section class="page-question">
+<section class="page-question" *ngIf="activeQuestion.data?.Type !== 'drawing' && activeQuestion.data?.Type !== 'sound'">
   <div class="page-inner">
   </div>
   <div class="page-content page-question-inner">
@@ -17,6 +17,14 @@
   </div>
 
 </section>
- -->
 
- <app-drawing></app-drawing>
+<div *ngIf="activeQuestion.data?.Type === 'drawing'">
+    <h2>{{activeQuestion.data.Title}}</h2>
+    <app-drawing ></app-drawing>
+</div>
+
+<div *ngIf="activeQuestion.data?.Type === 'sound'">
+    <h2>{{activeQuestion.data.Title}}</h2>
+    <app-sound></app-sound>
+</div>
+

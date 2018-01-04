@@ -52,6 +52,7 @@ export class DrawingComponent implements AfterViewInit {
       }
     }, false);
     document.body.addEventListener('touchmove', function (e) {
+      e.preventDefault();
       if (e.target === that.canvas.nativeElement) {
         that.canvasTop = (<HTMLCanvasElement>e.target).offsetTop;
         that.touchDraw(e);

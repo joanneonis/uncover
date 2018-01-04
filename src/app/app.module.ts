@@ -23,6 +23,7 @@ import { QuestionService } from './services/question.service';
 import { AnswerService } from './services/answer.service';
 import { DrawingComponent } from './rounds/drawing/drawing.component';
 import { DrawComponent } from './rounds/draw/draw.component';
+import { SoundComponent } from './rounds/answer/sound/sound.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { DrawComponent } from './rounds/draw/draw.component';
     BattlesCompletedComponent,
     ShareResultComponent,
     DrawingComponent,
-    DrawComponent
+    DrawComponent,
+    SoundComponent
   ],
   imports: [
     BrowserModule,
