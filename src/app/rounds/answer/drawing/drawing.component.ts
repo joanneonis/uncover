@@ -18,16 +18,21 @@ export class DrawingComponent implements AfterViewInit {
   lastX = 0;
   lastY = 0;
   hue = '#c00';
-  lineWidth = '1';
+  lineWidth = 1;
   blob;
   img;
   canvasTop;
+  colorPaletteOpen = false;
+  pencilSizeOpen = false;
 
   pen = {
     canvasID: 'canvas',
     width: 900,
     height: 450
   };
+
+  brushSizes = [5, 10, 20, 30];
+  selectedLine = 0;
 
   colors = ['#64592E', '#24612D', '#15667C', '#B6B4D7', '#B76F72', '#BB1821'];
 
@@ -37,11 +42,14 @@ export class DrawingComponent implements AfterViewInit {
   ) { }
 
   ngAfterViewInit() {
+    const that = this;
+
     this.ctx = this.canvas.nativeElement.getContext('2d');
     this.ctx.lineJoin = 'round';
     this.ctx.lineCap = 'round';
 
-    const that = this;
+    this.baseImage();
+
     document.body.addEventListener('touchstart', function (e) {
       if (e.target === that.canvas.nativeElement) {
         [that.lastX, that.lastY] = [e.changedTouches[0].clientX, (e.changedTouches[0].clientY - that.canvasTop)];
@@ -63,7 +71,18 @@ export class DrawingComponent implements AfterViewInit {
     }, false);
   }
 
+  baseImage() {
+    const that = this;
+
+    const base_image = new Image();
+    base_image.src = 'assets/img/draw-overlay.png';
+    base_image.onload = function(){
+      that.ctx.drawImage(base_image, 0, 0);
+    };
+  }
+
   draw(e) {
+    this.ctx.globalCompositeOperation = 'destination-over';
     if (!this.isDrawing) {return; }
 
     this.inputFilled.emit(true);
@@ -83,6 +102,7 @@ export class DrawingComponent implements AfterViewInit {
   }
 
   touchDraw(e) {
+    this.ctx.globalCompositeOperation = 'destination-over';
     if (!this.isDrawing) {return; }
 
     this.inputFilled.emit(true);
@@ -115,13 +135,21 @@ export class DrawingComponent implements AfterViewInit {
     this.draw(e);
   }
 
-  setLineWidth(e) {
-    console.log(e);
-    this.lineWidth = e;
+  setLineWidth() {
+    console.log(this.selectedLine);
+    console.log(this.brushSizes.length);
+    this.lineWidth = this.brushSizes[this.selectedLine];
+
+    if (this.selectedLine < this.brushSizes.length) {
+      this.selectedLine += 1;
+    }else {
+      this.selectedLine = 0;
+    }
   }
 
   clearCanvas() {
     this.ctx.clearRect(0, 0, 400, 600);
+    this.baseImage();
     this.inputEmpty.emit(false);
   }
 

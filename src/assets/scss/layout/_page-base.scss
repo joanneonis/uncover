@@ -12,3 +12,9 @@
   @include centralize();
   background: rgba(white, .3);
 }
+
+.box-trans{
+  background: #fffc;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.07);
+  display: inline-block;
+}

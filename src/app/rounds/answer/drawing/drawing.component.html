@@ -1,5 +1,5 @@
 
-  <div class="controls">
+  <!-- <div class="controls">
     <div class="control">
       <label for="width">Line Width:</label>
       <button (click)="setLineWidth(5)">small</button>
@@ -12,12 +12,14 @@
       </ul>
     </div>
     <div class="control button">
-      <input type="button" (click)="clearCanvas()" value="Reset">
+
 
       <button (click)="saveToFire()">save</button>
       <button [attr.download]="img">download</button>
     </div>
-  </div>
+  </div> -->
+
+
 
   <div id="box">
     <canvas
@@ -25,5 +27,33 @@
     (mousemove)="handleMouseMove($event)"
     (mouseup)="handleMouseUp($event)"
     #canvas
-    width="400" height="600"></canvas>
+    width="375" height="667"></canvas>
+  </div>
+
+  <div class="control">
+      <!-- <ul>
+        <li *ngFor="let color of colors" [style.backgroundColor]="color" (click)="hue = color"></li>
+      </ul> -->
+      <!-- <button (click)="setLineWidth(30)">i</button>
+      <input type="button" (click)="clearCanvas()" value="Reset"> -->
+
+      <span>
+          <a (click)="pencilSizeOpen =! pencilSizeOpen" class="btn btn-primary btn-circle"><span class="fas fa-pencil-alt"></span></a>
+          <div class="draw-menu pencil-sizes" *ngIf="pencilSizeOpen">
+            <ul>
+              <li class="btn btn-primary btn-circle" *ngFor="let brushSize of brushSizes" (click)="setLineWidth(brushSize); pencilSizeOpen = false">
+                <span [attr.data]="brushSize"></span>
+              </li>
+            </ul>
+          </div>
+      </span>
+      <span>
+        <a (click)="colorPaletteOpen =! colorPaletteOpen" class="btn btn-primary btn-circle" [style.backgroundColor]="hue"><span class="fas fa-tint"></span></a>
+        <div class="draw-menu color-pallete" *ngIf="colorPaletteOpen">
+          <ul>
+            <li class="btn btn-primary btn-circle" *ngFor="let color of colors" [style.backgroundColor]="color" (click)="hue = color; colorPaletteOpen = false"></li>
+          </ul>
+        </div>
+      </span>
+      <a (click)="clearCanvas()" class="btn btn-primary btn-circle"><span class="fas fa-times"></span></a>
   </div>

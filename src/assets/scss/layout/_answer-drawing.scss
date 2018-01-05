@@ -1,1 +1,40 @@
 
+.answer-draw{
+  canvas {
+   // transform: scale(1.165);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 0;
+  }
+  &-inner{
+    @include abs();
+    overflow: hidden;
+  }
+  .box-trans {
+    @include abs(20px, 0, auto, -40px);
+    position: absolute;
+    z-index: 2;
+    padding: 0 30px;
+    max-width: 300px;
+    margin: auto;
+    @include h{pointer-events: none;}
+  }
+
+  .btn-next {
+    position: absolute;
+    z-index: 2;
+    bottom: 20px;
+    left: auto;
+    right: 20px;
+  }
+
+  .control {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+}
+}
+

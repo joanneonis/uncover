@@ -1,6 +1,6 @@
-<div class="page-heading">
+<!-- <div class="page-heading">
   <h1>Wat denk jij?</h1>
-</div>
+</div> -->
 
 
 <section class="page-question" *ngIf="activeQuestion.data?.Type !== 'drawing' && activeQuestion.data?.Type !== 'sound'">
@@ -18,11 +18,15 @@
 
 </section>
 
-<div *ngIf="activeQuestion.data?.Type === 'drawing'">
+<section class="answer-draw" *ngIf="activeQuestion.data?.Type === 'drawing'">
+  <div class="box-trans">
     <h2>{{activeQuestion.data.Title}}</h2>
+  </div>
+  <a *ngIf="drawing" class="btn btn-primary btn-next" [routerLink]="[activeQuestion.id]">volgende</a>
+  <div class="answer-draw-inner">
     <app-drawing (inputFilled)="handleInputFilled($event)" (inputEmpty)="handleInputEmpty($event)"></app-drawing>
-    <a *ngIf="drawing" class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a>
-</div>
+  </div>
+</section>
 
 <div *ngIf="activeQuestion.data?.Type === 'sound'">
     <h2>{{activeQuestion.data.Title}}</h2>
