@@ -24,8 +24,8 @@
 
 .btn{
   @extend %btn-reset;
-  padding: 10px 22px;
-  background-color: black;
+  padding: 12px 52px;
+  background-color: color(primary, 500);
   border-radius: 100px;
   font-size: 1em;
   font-family: $heading-font;

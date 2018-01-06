@@ -24,6 +24,12 @@ round = localStorage.getItem('activeCategory');
           id: a['question'].payload.id,
           data: a['question'].payload.data()
         };
+
+        if (!this.question.data.LiteratureText && this.round !== '8') {
+          this.nextRound();
+        }else if (!this.question.data.LiteratureText) {
+          this.router.navigate([`/battles-completed`]);
+        }
     });
   }
   nextRound() {

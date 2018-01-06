@@ -2,10 +2,25 @@
 @include h{
   font-family: $heading-font;
   font-weight: 500;
+  margin-top: 0;
+
+  sup{
+    text-transform: none;
+  }
+  &.small{
+    text-transform: none;
+  }
+}
+
+h1, h1{
+  text-transform: uppercase;
+  letter-spacing: 5px;
 }
 
 h2, .h2 {
   font-size: 1.6em;
+  letter-spacing: 4px;
+  margin-bottom: .45em;
 }
 
 h3, .h3{

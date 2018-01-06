@@ -1,18 +1,19 @@
 
 .page-category{
-  background-image: url('/assets/img/paper-2.png');
-  position: relative;
   overflow: hidden;
+  position: relative;
+  width: 100vw;
   height: 100vh;
-  background-size: cover;
 
   &-inner{
-    @include centralize();
-    background: #ffffffb3;
-    padding: 20px;
-    text-align: center;
-    left: 36%;
-    top: 40vh;
-    width: 220px;
+
   }
-}
+
+   img{
+    width: 120vw;
+    height: auto;
+    margin-left: calc(-20vw + -20px);
+    margin-bottom: -10vw;
+   }
+  }
+

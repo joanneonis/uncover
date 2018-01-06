@@ -21,6 +21,7 @@ body{
 @import 'settings/colors';
 
 //component imports
+@import 'components/box';
 @import 'components/type/font';
 @import 'components/type/type';
 @import 'components/type/headings';
@@ -33,7 +34,6 @@ body{
 //layout
 @import 'layout/page-base';
 @import 'layout/login';
-@import 'layout/login-welcome';
 @import 'layout/wheel';
 @import 'layout/remix';
 @import 'layout/discover';
@@ -44,3 +44,4 @@ body{
 @import 'layout/answer-drawing';
 @import 'layout/drawing/color-palette';
 
+@import 'layout/page-welcome';

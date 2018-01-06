@@ -19,8 +19,8 @@
 </section>
 
 <section class="answer-draw" *ngIf="activeQuestion.data?.Type === 'drawing'">
-  <div class="box-trans">
-    <h2>{{activeQuestion.data.Title}}</h2>
+  <div class="box-trans-abs">
+    <h2 class="type">{{activeQuestion.data.Title}}</h2>
   </div>
   <a *ngIf="drawing" class="btn btn-primary btn-next" [routerLink]="[activeQuestion.id]">volgende</a>
   <div class="answer-draw-inner">
@@ -33,4 +33,5 @@
     <app-sound (inputFilled)="handleInputFilled($event)"></app-sound>
     <a *ngIf="drawing" class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a>
 </div>
+
 

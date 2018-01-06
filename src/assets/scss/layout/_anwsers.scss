@@ -1,5 +1,5 @@
 
-.anwsers {
+.answers {
   list-style: none;
   padding: 0;
 
@@ -20,4 +20,18 @@
         top: -20px;
     }
   }
+
+  &-img{
+    margin-right: -5vw;
+
+    li{
+      padding: 0;
+      margin-right: 5vw;
+    }
+    img {
+      background: white;
+      height: 30vh;
+    }
+  }
 }
+

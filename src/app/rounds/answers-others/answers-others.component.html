@@ -1,11 +1,22 @@
 
-<section class="page-anwser page-question">
+<section class="page-anwsser page-question">
     <div class="page-inner">
-        <h2>{{question.data.Title}}</h2>
-        <div class="page-anwsers">
-            <ul class="anwsers">
+        <div class="box-trans">
+            <h2 class="type">{{question.data.Title}}</h2>
+        </div>
+
+        <div class="page-answers">
+            <ul class="answers" *ngIf="!question.data" >
                 <li [routerLink]="'remix'" *ngFor="let a of answers"><a>{{a.Answer}}</a></li>
-              </ul>
+            </ul>
+            <ul class="answers answers-img" *ngIf="question.data.Type == 'drawing'" >
+                <li [routerLink]="'remix'" *ngFor="let a of answers"><a>
+                  <img [src]="a.Answer" alt="">
+                </a></li>
+            </ul>
+            <ul class="answers answers-sound" *ngIf="question.data.Type == 'sound'" >
+                <li [routerLink]="'remix'" *ngFor="let a of answers"><a>{{a.Answer}}</a></li>
+            </ul>
         </div>
     </div>
 

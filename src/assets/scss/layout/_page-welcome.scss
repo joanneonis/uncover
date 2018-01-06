@@ -1,0 +1,32 @@
+
+.page-welcome{
+  @include abs(0);
+  overflow: hidden;
+  background-image: url('/assets/img/paper-5.png');
+  background-size: cover;
+
+  &_inner {
+    padding: 31vw 20px;
+    border: 5px solid white;
+    @include centralize;
+    width: 83%;
+    height: 88%;
+    text-align: center;
+  }
+
+  p {
+    margin-top: 22vw;
+    margin-left: 29vw;
+    text-align:  left;
+  }
+
+  .btn{
+    margin-top: 10vw;
+  }
+
+  h1 {
+    color: white;
+  }
+}
+
+

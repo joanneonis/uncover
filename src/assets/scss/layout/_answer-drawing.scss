@@ -14,12 +14,6 @@
     overflow: hidden;
   }
   .box-trans {
-    @include abs(20px, 0, auto, -40px);
-    position: absolute;
-    z-index: 2;
-    padding: 0 30px;
-    max-width: 300px;
-    margin: auto;
     @include h{pointer-events: none;}
   }
 

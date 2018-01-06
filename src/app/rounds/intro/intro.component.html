@@ -47,21 +47,19 @@
 
   <!-- <button class="btn btn-primary page-next" (click)="randomArtwork()">Volgende</button> -->
 
-<section *ngIf="selectedArtwork && !showCategory">
+<section class="page page-scan" *ngIf="selectedArtwork && !showCategory">
   <div class="page-heading">
     <h1 class="h3">Scan het kunstwerk</h1>
     <p>Mik de camera op het kunstwerk en de rest gaat vanzelf.</p>
-    <div class="scan-artwork" [style.background-image]="'url(' + (selectedArtwork).image + ')'"></div>
   </div>
-
-
+  <div class="scan-artwork" [style.background-image]="'url(' + (selectedArtwork).image + ')'"></div>
   <!-- {{selectedArtwork | async | json}} -->
 
 <a class="btn btn-primary page-next" (click)="showCategory = true">Volgende</a>
 
 </section>
 
-<section class="page-category" *ngIf="showCategory">
+<!-- <section class="page-category" *ngIf="showCategory">
     <div class="page-content page-category-inner">
         <h2 class="type">{{ (activeCategory | async).Title }}</h2>
         <p>
@@ -70,4 +68,18 @@
 
         <a [routerLink]="'answer'" class="btn btn-primary">Volgende</a>
     </div>
-</section>
+
+
+</section> -->
+
+
+<div class="page page-category" *ngIf="showCategory">
+  <div class="page-inner">
+      <h2 class="type">{{ (activeCategory | async).Title }}</h2>
+      <p>
+        {{ (activeCategory | async).Text}}
+      </p>
+    <img src="./assets/img/paper-1.png" alt="papier">
+    <a [routerLink]="'answer'" class="btn btn-primary page-next">volgende</a>
+  </div>
+</div>

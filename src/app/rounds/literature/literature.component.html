@@ -1,12 +1,15 @@
 
-<div class="welcome-text">
-  <div class="page-inner welcome-text-inner">
-    <h3>Literatuur  round: {{round}}</h3>
-    <h3>{{question.data.LiteratureTitle}}</h3>
-    <p>{{question.data.LiteratureText}}</p>
-    <img src="./assets/img/paper-1.png" alt="papier">
-    <a *ngIf="round != '8'" (click)="nextRound()" class="btn btn-primary">Volgende</a>
-    <a *ngIf="round == '8'" [routerLink]="'/battles-completed'" class="btn btn-primary">volgende</a>
-  </div>
-</div>
 
+<div class="page page-category">
+    <div class="page-inner">
+        <h2 class="type">{{question.data.LiteratureTitle}}</h2>
+        <p>
+            {{question.data.LiteratureText}}
+        </p>
+      <img src="./assets/img/paper-1.png" alt="papier">
+      <a *ngIf="round != '8'" (click)="nextRound()" class="btn btn-primary">Volgende</a>
+    <a *ngIf="round == '8'" [routerLink]="'/battles-completed'" class="btn btn-primary">volgende</a>
+    </div>
+  </div>
+
+  <!-- {{round}} -->
