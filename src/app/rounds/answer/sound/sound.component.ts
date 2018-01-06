@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, EventEmitter, Output} from '@angular/core';
 import * as RecordRTC from 'recordrtc';
 
 // followed tutorial on medium and blog

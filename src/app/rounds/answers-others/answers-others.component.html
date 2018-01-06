@@ -2,11 +2,11 @@
 <section class="page-anwsser page-question">
     <div class="page-inner">
         <div class="box-trans">
-            <h2 class="type">{{question.data.Title}}</h2>
+            <h2 class="type">{{question.data.Title}} {{question.data.Type}}</h2>
         </div>
 
         <div class="page-answers">
-            <ul class="answers" *ngIf="!question.data" >
+            <ul class="answers" *ngIf="!question.data.Type" >
                 <li [routerLink]="'remix'" *ngFor="let a of answers"><a>{{a.Answer}}</a></li>
             </ul>
             <ul class="answers answers-img" *ngIf="question.data.Type == 'drawing'" >
