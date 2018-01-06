@@ -1,11 +1,10 @@
 <!-- heks 2 -->
 
-<p>
-  sound-waves works!
-</p>
-
 <canvas #canvas width="317" height="500"></canvas>
 
 <audio #audio controls></audio>
 
-<button (click)="toggleRecording()">Start</button>
+<a (click)="toggleRecording()" class="btn btn-primary btn-lg btn-circle record-btn"><span class="fas fa-microphone"></span></a>
+
+<a (click)="play()" class="btn btn-primary page-next">speel af</a>
+<!-- <a (click)="" class="btn btn-primary page-next">Volgende</a> -->

@@ -1,0 +1,19 @@
+
+.page-sound{
+  background-image: url('/assets/img/paper-6.png');
+  background-size: cover;
+  background-position: center;
+  @include abs(0);
+
+  canvas{
+    @include centralize;
+    width: 100%;
+    height: 50vh;
+    opacity: .8;
+  }
+}
+
+.record-btn{
+  @include centralize;
+}
+

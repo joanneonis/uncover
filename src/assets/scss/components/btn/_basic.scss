@@ -44,16 +44,20 @@
     font-size: 1.2em;
   }
   &-lg{
-    font-size: 1.2em;
+    font-size: 1.6em;
     padding: 12px 10px;
   }
 
   &-circle {
-    height: 41px;
-    width: 41px;
+    @include size(41px);
     text-align: center;
     padding: 0;
     line-height: 41px;
+
+    &.btn-lg{
+      @include size(70px);
+      line-height: 70px;
+    }
   }
 }
 

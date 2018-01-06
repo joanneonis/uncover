@@ -16,9 +16,9 @@ export class SoundWavesComponent implements AfterViewInit {
   scriptProcessor: any;
   chunks = [];
 
-  barWidth = 2;
-  barGutter = 2;
-  barColor = '#49F1D5';
+  barWidth = 10;
+  barGutter = 4;
+  barColor = '#ffffff';
 
   // Variables
   stream = null;

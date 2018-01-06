@@ -28,10 +28,12 @@
   </div>
 </section>
 
-<div *ngIf="activeQuestion.data?.Type === 'sound'">
-    <h2>{{activeQuestion.data.Title}}</h2>
+<div class="page page-sound" *ngIf="activeQuestion.data?.Type === 'sound'">
+    <div class="box-trans-abs">
+      <h2 class="type">{{activeQuestion.data.Title}}</h2>
+    </div>
     <app-sound-waves></app-sound-waves>
-    <a *ngIf="drawing" class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a>
+    <!-- <a *ngIf="drawing" class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a> -->
 </div>
 
 
