@@ -293,10 +293,12 @@ export class IntroComponent implements AfterViewInit {
         // console.log(element.name, `intro/${this.artworks[this.obj.indexOf(element)].id}`);
         element.done = true;
 
+        let revealedPaintings = JSON.parse(localStorage.getItem('revealedPaintings') || '[]');
+        revealedPaintings = [...revealedPaintings, element.name];
+        localStorage.setItem('revealedPaintings', JSON.stringify(revealedPaintings));
 
         // set category/round
         this.categoryService.nextCategory();
-
         this.router.navigate([`intro/${this.artworks[this.obj.indexOf(element)].id}`]);
       }
     }
