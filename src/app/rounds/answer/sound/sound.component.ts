@@ -1,17 +1,9 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
 import * as RecordRTC from 'recordrtc';
 
-// followed tutorial on medium:
+// followed tutorial on medium and blog
 // https://medium.com/@SumanthShankar/integrate-recordrtc-with-angular-2-typescript-942c9c4ca93f
-
-// todo visualize?
-// https://codepen.io/Sambego/pen/VmBJJN
-// https://codepen.io/zapplebee/pen/gbNbZE
-// https://codepen.io/giana/pen/xZEdML  deze is makkelijk te implementeren en aan te passen
-
-// from mp3
-// https://codepen.io/Davide_sd/pen/qcner
-//
+// https://blog.sambego.be/creating-an-audio-waveform-from-your-microphone-input/
 
 @Component({
   selector: 'app-sound',

@@ -23,6 +23,9 @@ import { QuestionService } from './services/question.service';
 import { AnswerService } from './services/answer.service';
 import { DrawingComponent } from './rounds/answer/drawing/drawing.component';
 import { SoundComponent } from './rounds/answer/sound/sound.component';
+import { SoundWaveComponent } from './rounds/answer/sound-wave/sound-wave.component';
+import { AudioContextModule } from 'angular-audio-context';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,14 +40,16 @@ import { SoundComponent } from './rounds/answer/sound/sound.component';
     BattlesCompletedComponent,
     ShareResultComponent,
     DrawingComponent,
-    SoundComponent
+    SoundComponent,
+    SoundWaveComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase, 'uncover'),
     AngularFirestoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AudioContextModule.forRoot('balanced')
   ],
   providers: [CategoryService, ArtworkService, QuestionService, AnswerService],
   bootstrap: [AppComponent]
