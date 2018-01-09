@@ -75,7 +75,7 @@
 
 <div class="page page-category" *ngIf="showCategory">
   <div class="page-inner">
-      <h2 class="type">{{ (activeCategory | async).Title }}</h2>
+      <h2 class="type">{{ (activeCategory | async).Title}}<small>Ronde {{round}} van 8</small></h2>
       <p>
         {{ (activeCategory | async).Text}}
       </p>

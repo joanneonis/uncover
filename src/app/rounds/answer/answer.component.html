@@ -22,7 +22,7 @@
   <div class="box-trans-abs">
     <h2 class="type">{{activeQuestion.data.Title}}</h2>
   </div>
-  <a *ngIf="drawing" class="btn btn-primary btn-next" [routerLink]="[activeQuestion.id]">volgende</a>
+  <a *ngIf="inputFilled" class="btn btn-primary btn-next" [routerLink]="[activeQuestion.id]">volgende</a>
   <div class="answer-draw-inner">
     <app-drawing (inputFilled)="handleInputFilled($event)" (inputEmpty)="handleInputEmpty($event)"></app-drawing>
   </div>
@@ -32,8 +32,9 @@
     <div class="box-trans-abs">
       <h2 class="type">{{activeQuestion.data.Title}}</h2>
     </div>
-    <app-sound-waves></app-sound-waves>
+    <app-sound-waves (inputFilled)="handleInputFilled($event)" (inputEmpty)="handleInputEmpty($event)"></app-sound-waves>
     <!-- <a *ngIf="drawing" class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a> -->
+    <a *ngIf="inputFilled" class="btn btn-primary page-next" [routerLink]="[activeQuestion.id]">volgende</a>
 </div>
 
 

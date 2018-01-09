@@ -13,6 +13,7 @@ import { ShareResultComponent } from './rounds/share-result/share-result.compone
 import { ArtworkService } from './services/artwork.service';
 import { QuestionService } from './services/question.service';
 import { AnswerService } from './services/answer.service';
+import { PhotoEyeComponent } from './rounds/photo-eye/photo-eye.component';
 
 
 const routes: Routes = [
@@ -62,7 +63,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'intro/:artworkId/answer/:questionId/remix',
+    path: 'remix',
     component: RemixComponent
   },
   {
@@ -76,6 +77,10 @@ const routes: Routes = [
   {
     path: 'discover',
     component: DiscoverComponent
+  },
+  {
+    path: 'photo-eye',
+    component: PhotoEyeComponent
   }
 ];
 

@@ -4,7 +4,14 @@
 
 <audio #audio controls></audio>
 
-<a (click)="toggleRecording()" class="btn btn-primary btn-lg btn-circle record-btn"><span class="fas fa-microphone"></span></a>
+<a *ngIf="state == 'idle'" (click)="startRecording()" class="btn btn-primary btn-lg btn-circle record-btn"><span class="fas fa-microphone"></span></a>
+<a *ngIf="state == 'recording'" (click)="stopRecording()" class="btn btn-primary btn-lg btn-circle record-btn"><span class="fas fa-stop"></span></a>
+<a *ngIf="state == 'done'" (click)="play()" class="btn btn-primary btn-lg btn-circle record-btn"><span class="fas fa-play"></span></a>
+<a *ngIf="state == 'playing'" (click)="stop()" class="btn btn-primary btn-lg btn-circle record-btn"><span class="fas fa-stop"></span></a>
 
-<a (click)="play()" class="btn btn-primary page-next">speel af</a>
+<a *ngIf="state == 'done'" (click)="startRecording()" class="btn btn-primary record-again">Opnieuw opnemen</a>
+<!-- <a #downloadButton *ngIf="state == 'done'" download class="btn btn-primary record-again">Download</a> -->
+
+<!-- <a *ngIf="state == 'done'" (click)="toggleRecording()" class="btn btn-primary btn-lg btn-circle record-btn"><span class="fas fa-trash-alt"></span></a> -->
+<!-- <a (click)="play()" class="btn btn-primary page-next">speel af</a> -->
 <!-- <a (click)="" class="btn btn-primary page-next">Volgende</a> -->

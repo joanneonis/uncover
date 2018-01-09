@@ -28,7 +28,7 @@ round = localStorage.getItem('activeCategory');
         if (!this.question.data.LiteratureText && this.round !== '8') {
           this.nextRound();
         }else if (!this.question.data.LiteratureText) {
-          this.router.navigate([`/battles-completed`]);
+          this.router.navigate([`/photo-eye`]);
         }
     });
   }

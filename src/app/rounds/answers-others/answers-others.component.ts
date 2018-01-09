@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AnswerService } from '../../services/answer.service';
 import { AngularFirestore } from 'angularfire2/firestore';
@@ -9,6 +9,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
   styleUrls: ['./answers-others.component.css']
 })
 export class AnswersOthersComponent implements OnInit {
+@ViewChild('audioPlayer') audioPlayer: ElementRef;
 selectedArtwork: any;
 question: any;
 answers: any[];

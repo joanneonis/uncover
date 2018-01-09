@@ -12,7 +12,7 @@ export class AnswerComponent implements OnInit {
   questions: any[];
   activeCategory = 0;
   answer = '';
-  drawing = false;
+  inputFilled = false;
 
   get activeQuestion(): any {
     if (this.activeCategory === 0 || !this.questions) {
@@ -41,10 +41,11 @@ export class AnswerComponent implements OnInit {
   }
 
   handleInputFilled(e: boolean) {
-    this.drawing = true;
+    this.inputFilled = true;
   }
 
   handleInputEmpty(e: boolean) {
-    this.drawing = false;
+    this.inputFilled = false;
   }
+
 }

@@ -23,6 +23,7 @@ export class IntroComponent implements AfterViewInit {
   isDrawing;
   lastPoint;
   container    = document.getElementById('container');
+  round = localStorage.getItem('activeCategory');
   canvasWidth  = 412;
   canvasHeight = 732;
   ctx;
@@ -233,6 +234,7 @@ switch (localStorage.getItem('activeCategory')) {
 }
 
 
+
  // nu komt het, het scratchen
 
   // tslint:disable-next-line:max-line-length
@@ -319,7 +321,7 @@ switch (localStorage.getItem('activeCategory')) {
 
     console.log(filledInPixels);
 
-    if (filledInPixels > 80) {
+    if (filledInPixels > 60) {
       let revealedPaintings = JSON.parse(localStorage.getItem('revealedPaintings') || '[]');
       revealedPaintings = [...revealedPaintings, this.activeItem.name];
       localStorage.setItem('revealedPaintings', JSON.stringify(revealedPaintings));

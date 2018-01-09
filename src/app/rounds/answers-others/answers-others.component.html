@@ -7,15 +7,18 @@
 
         <div class="page-answers">
             <ul class="answers" *ngIf="!question.data.Type" >
-                <li [routerLink]="'remix'" *ngFor="let a of answers"><a>{{a.Answer}}</a></li>
+                <li [routerLink]="'literature'" *ngFor="let a of answers"><a>{{a.Answer}}</a></li>
             </ul>
             <ul class="answers answers-img" *ngIf="question.data.Type == 'drawing'" >
-                <li [routerLink]="'remix'" *ngFor="let a of answers"><a>
+                <li [routerLink]="'literature'" *ngFor="let a of answers"><a>
                   <img [src]="a.Answer" alt="">
                 </a></li>
             </ul>
             <ul class="answers answers-sound" *ngIf="question.data.Type == 'sound'" >
-                <li [routerLink]="'remix'" *ngFor="let a of answers"><a>{{a.Answer}}</a></li>
+                <li [routerLink]="'literature'"><a>Tijdelijk</a></li>
+                <li [routerLink]="'literature'" *ngFor="let a of answers"><a>
+                  <audio #audioPlayer [src]="a.Answer"></audio>
+                </a></li>
             </ul>
         </div>
     </div>

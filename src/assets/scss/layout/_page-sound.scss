@@ -17,3 +17,13 @@
   @include centralize;
 }
 
+.record-again {
+  position: absolute;
+  top: auto;
+  right: 20px;
+  bottom: 70px;
+  left: 20px;
+  width: calc(100% - 40px);
+  z-index: 2;
+  background: #000;
+}

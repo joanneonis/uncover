@@ -24,6 +24,7 @@ import { AnswerService } from './services/answer.service';
 import { DrawingComponent } from './rounds/answer/drawing/drawing.component';
 import { SoundComponent } from './rounds/answer/sound/sound.component';
 import { SoundWavesComponent } from './rounds/answer/sound-waves/sound-waves.component';
+import { PhotoEyeComponent } from './rounds/photo-eye/photo-eye.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { SoundWavesComponent } from './rounds/answer/sound-waves/sound-waves.com
     DrawingComponent,
     SoundComponent,
     SoundWavesComponent,
+    PhotoEyeComponent,
   ],
   imports: [
     BrowserModule,

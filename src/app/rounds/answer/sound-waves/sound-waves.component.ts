@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit  } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, Output, EventEmitter  } from '@angular/core';
 import { createText } from '@angular/core/src/view/text';
 declare var MediaRecorder: any;
 
@@ -10,6 +10,10 @@ declare var MediaRecorder: any;
 export class SoundWavesComponent implements AfterViewInit {
   @ViewChild('canvas') canvas: ElementRef;
   @ViewChild('audio') audioPlayerRef: ElementRef;
+  @ViewChild('downloadButton') downloadButton: ElementRef;
+  @Output() inputFilled: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() inputEmpty: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   audioContext: AudioContext;
   audioPlayer: HTMLAudioElement;
   analyser: any;
@@ -19,6 +23,8 @@ export class SoundWavesComponent implements AfterViewInit {
   barWidth = 10;
   barGutter = 4;
   barColor = '#ffffff';
+  state = 'idle';
+  recordedAudio;
 
   // Variables
   stream = null;
@@ -101,6 +107,8 @@ export class SoundWavesComponent implements AfterViewInit {
 
     ctx.audioPlayer.setAttribute('src', ctx.recording);
     // this.playButton.classList.remove('button--disabled');
+    this.recordedAudio = ctx.recording;
+    this.downloadButton.nativeElement.setAttribute('href', ctx.recording);
   }
 
   // Start recording
@@ -109,14 +117,17 @@ export class SoundWavesComponent implements AfterViewInit {
     // recordButton.classList.add('button--active');
 
     this.recorder.start();
+    this.state = 'recording';
   }
 
   // Stop recording
   stopRecording() {
     this.isRecording = false;
+    this.state = 'done';
     // recordButton.classList.remove('button--active');
 
     this.recorder.stop();
+    this.inputFilled.emit(true);
   }
 
   // Toggle the recording button
@@ -204,6 +215,7 @@ export class SoundWavesComponent implements AfterViewInit {
   // Play the recording
   play() {
     this.isPlaying = true;
+    this.state = 'playing';
 
     this.audioPlayer.play();
 
@@ -214,6 +226,7 @@ export class SoundWavesComponent implements AfterViewInit {
 
   // Stop the recording
   stop() {
+    this.state = 'done';
     this.isPlaying = false;
 
     this.audioPlayer.pause();
