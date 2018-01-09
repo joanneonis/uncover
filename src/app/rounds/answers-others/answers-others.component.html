@@ -15,9 +15,9 @@
                 </a></li>
             </ul>
             <ul class="answers answers-sound" *ngIf="question.data.Type == 'sound'" >
-                <li [routerLink]="'literature'"><a>Tijdelijk</a></li>
-                <li [routerLink]="'literature'" *ngFor="let a of answers"><a>
-                  <audio #audioPlayer [src]="a.Answer"></audio>
+                <li *ngFor="let a of answers"><a>
+                  <audio controls [src]="a.Answer"></audio>
+                  <a [routerLink]="'literature'" class="btn btn-xs">kies</a>
                 </a></li>
             </ul>
         </div>

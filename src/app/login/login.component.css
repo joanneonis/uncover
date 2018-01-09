@@ -3,6 +3,7 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  background-color: #202021;
 }
 
 #scene > div{
@@ -12,10 +13,10 @@
 
 #scene > div > div{
   position: absolute;
-  top:-1vh;
-  bottom:-1vh;
-  left:-1vw;
-  right: -1vw;
+  top: -4vh;
+  bottom: -4vh;
+  left: -4vw;
+  right: -4vw;
   background-size: cover;
   background-position: center;
 }
