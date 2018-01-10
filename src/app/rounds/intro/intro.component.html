@@ -15,12 +15,13 @@
   (mousedown)="handleMouseDown($event)"
   (mousemove)="handleMouseMove($event)"
   (mouseup)="handleMouseUp($event)"
-  (touchstart)="handleTouchStart($event)"
   (touchmove)="handleTouchMove($event)"
-  (touchend)="handleTouchEnd($event)"
   #canvas
-  width="412"
-  height="732"></canvas>
+  [attr.width]="canvasWidth"
+  [attr.height]="canvasHeight"></canvas>
+
+  <!--  (touchstart)="handleTouchStart($event)" (touchend)="handleTouchEnd($event)"
+ -->
 
   <!-- <button class="btn btn-primary page-next" (click)="randomArtwork()">Volgende</button> -->
 </section>

@@ -24,8 +24,8 @@ export class IntroComponent implements AfterViewInit {
   lastPoint;
   container    = document.getElementById('container');
   round = localStorage.getItem('activeCategory');
-  canvasWidth  = 412;
-  canvasHeight = 732;
+  canvasWidth  = window.innerWidth;
+  canvasHeight = window.innerHeight;
   ctx;
   image        = new Image();
   brush        = new Image();
@@ -187,48 +187,44 @@ export class IntroComponent implements AfterViewInit {
       this.artworks = a.map(b => ({ id: b.payload.doc.id, data: b.payload.doc.data() }));
     });
 
-   // const test = document.getElementById('testImage').src;
- //   console.log(this.colorThief.getColor(test.src));
-
-
 switch (localStorage.getItem('activeCategory')) {
   case '0':
-      this.image.src = '/assets/img/parts/Lijst-met-appels.png';
+      this.image.src = '/assets/img/parts/resized/Lijst-met-appels.png';
       this.backImage = '/assets/img/parts/back/Lijst-met-appels.png';
       this.activeItem = this.obj[0];
       break;
   case '1':
-      this.image.src = '/assets/img/parts/In-oranje-bol.png';
+      this.image.src = '/assets/img/parts/resized/In-oranje-bol.png';
       this.backImage = '/assets/img/parts/back/In-oranje-bol.png';
       this.activeItem = this.obj[1];
       break;
   case '2':
-      this.image.src = '/assets/img/parts/Oester-met-parels.png';
+      this.image.src = '/assets/img/parts/resized/Oester-met-parels.png';
       this.backImage = '/assets/img/parts/back/Oester-met-parels.png';
       this.activeItem = this.obj[2];
       break;
   case '3':
-      this.image.src = '/assets/img/parts/symboliek-hel.png';
+      this.image.src = '/assets/img/parts/resized/symboliek-hel.png';
       this.backImage = '/assets/img/parts/back/symboliek-hel.png';
       this.activeItem = this.obj[3];
       break;
   case '4':
-      this.image.src = '/assets/img/parts/Kont-met-bloem.png';
+      this.image.src = '/assets/img/parts/resized/Kont-met-bloem.png';
       this.backImage = '/assets/img/parts/back/Kont-met-bloem.png';
       this.activeItem = this.obj[4];
       break;
   case '5':
-      this.image.src = '/assets/img/parts/Heks-met-uil.png';
+      this.image.src = '/assets/img/parts/resized/Heks-met-uil.png';
       this.backImage = '/assets/img/parts/back/Heks-met-uil.png';
       this.activeItem = this.obj[5];
       break;
   case '6':
-      this.image.src = '/assets/img/parts/Ei-en-schelp.png';
+      this.image.src = '/assets/img/parts/resized/Ei-en-schelp.png';
       this.backImage = '/assets/img/parts/back/Ei-en-schelp.png';
       this.activeItem = this.obj[6];
       break;
   case '7':
-      this.image.src = '/assets/img/parts/Glazen-bol-bouwwerk.png';
+      this.image.src = '/assets/img/parts/resized/Glazen-bol-bouwwerk.png';
       this.backImage = '/assets/img/parts/back/Glazen-bol-bouwwerk.png';
       this.activeItem = this.obj[7];
 }
@@ -253,8 +249,10 @@ switch (localStorage.getItem('activeCategory')) {
 // testdrawings
   const that = this;
 // front image
+const centerWidth = that.canvasWidth / 2 - 412 / 2;
+const centerHeight = that.canvasHeight / 2 - 732 / 2;
  this.image.onload = function() {
-    that.ctx.drawImage(that.image, 0, 0);
+    that.ctx.drawImage(that.image, centerWidth, centerHeight);
   };
 
   for (let index = 0; index < this.obj.length; index++) {
@@ -319,7 +317,7 @@ switch (localStorage.getItem('activeCategory')) {
 
    handlePercentage(filledInPixels) {
 
-    console.log(filledInPixels);
+//    console.log(filledInPixels);
 
     if (filledInPixels > 60) {
       let revealedPaintings = JSON.parse(localStorage.getItem('revealedPaintings') || '[]');
@@ -352,7 +350,7 @@ switch (localStorage.getItem('activeCategory')) {
   }
 
   handleMouseDown(e) {
-    console.log(e);
+    // console.log(e);
     this.isDrawing = true;
     this.lastPoint = this.getMouse(e, this.canvas);
   }
@@ -382,9 +380,7 @@ switch (localStorage.getItem('activeCategory')) {
   }
 
   handleTouchMove(e) {
-   // console.log(e);
-    // console.log(e.changedTouches[0].pageX);
-    // console.log('helleuw');
+  //  console.log('scalefactor', ((window.innerWidth - 412) / 412) + 1);
    // if (!this.isDrawing) { return; }
 
     e.preventDefault();
@@ -429,7 +425,7 @@ switch (localStorage.getItem('activeCategory')) {
   }
 
   randomArtwork() {
-    console.log(this.artworks);
+    // console.log(this.artworks);
     const randomArtwork = this.artworks[Math.floor(Math.random() * this.artworks.length)];
 
     // // set category/round
