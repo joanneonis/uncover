@@ -249,8 +249,8 @@ switch (localStorage.getItem('activeCategory')) {
 // testdrawings
   const that = this;
 // front image
-const centerWidth = that.canvasWidth / 2 - 412 / 2;
-const centerHeight = that.canvasHeight / 2 - 732 / 2;
+const centerWidth = that.canvasWidth / 2 - 632 / 2;
+const centerHeight = that.canvasHeight / 2 - 849 / 2;
  this.image.onload = function() {
     that.ctx.drawImage(that.image, centerWidth, centerHeight);
   };

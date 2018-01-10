@@ -27,7 +27,7 @@
     (mousemove)="handleMouseMove($event)"
     (mouseup)="handleMouseUp($event)"
     #canvas
-    width="375" height="667"></canvas>
+    [attr.width]="canvasWidth" [attr.height]="canvasHeight"></canvas>
   </div>
 
   <div class="control">

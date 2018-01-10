@@ -25,6 +25,9 @@ export class DrawingComponent implements AfterViewInit {
   colorPaletteOpen = false;
   pencilSizeOpen = false;
 
+  canvasWidth = window.innerWidth;
+  canvasHeight = window.innerHeight;
+
   pen = {
     canvasID: 'canvas',
     width: 900,
@@ -74,10 +77,23 @@ export class DrawingComponent implements AfterViewInit {
   baseImage() {
     const that = this;
 
+    // https://www.html5canvastutorials.com/tutorials/html5-canvas-image-size/ uitbreiden met grootte
+
+    //683 height
+    // const width = (((683 - window.innerHeight) / window.innerHeight));
+    // const widthcalc = width * 632;
+    const ratio = (632 / 683);
+    const height = window.innerHeight; //window.innerHeight
+    const width = height * ratio;
+    const centerWidth = that.canvasWidth / 2 - width / 2;
+    const centerHeight = that.canvasHeight / 2 - height / 2;
+
+    console.log(ratio, width, height);
+
     const base_image = new Image();
-    base_image.src = 'assets/img/draw-overlay.png';
+    base_image.src = 'assets/img/draw-resized.png';
     base_image.onload = function(){
-      that.ctx.drawImage(base_image, 0, 0);
+      that.ctx.drawImage(base_image, centerWidth, 0, width, height);
     };
   }
 
