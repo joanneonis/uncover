@@ -12,8 +12,8 @@
 
   <div class="page-anwser">
       <label for="anwser">Jouw antwoord</label>
-      <input name="anwser" type="text" [(ngModel)]="answer">
-      <a class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a>
+      <input name="anwser" type="text" [(ngModel)]="answerTxt">
+      <a *ngIf="answerTxt.length > 2" class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a>
   </div>
 
 </section>
