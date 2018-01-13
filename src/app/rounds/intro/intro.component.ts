@@ -23,7 +23,7 @@ export class IntroComponent implements AfterViewInit {
   isDrawing;
   lastPoint;
   container    = document.getElementById('container');
-  round = localStorage.getItem('activeCategory');
+  round = 0;
   canvasWidth  = window.innerWidth;
   canvasHeight = window.innerHeight;
   ctx;
@@ -183,47 +183,56 @@ export class IntroComponent implements AfterViewInit {
     this.categoryService.getCategories().subscribe(a => {
       this.categories = a;
     });
+
+    // this.categoryService.$activeCategory.subscribe(a => {
+    //   // this.activeCategory = a;
+    //   this.round = this.activeCategory;
+    // });
     this.artworkService.getArtworks().subscribe(a => {
       this.artworks = a.map(b => ({ id: b.payload.doc.id, data: b.payload.doc.data() }));
     });
 
-switch (localStorage.getItem('activeCategory')) {
-  case '0':
+    this.round = this.categoryService.activeCategory;
+    // this.round = this.activeCategory;
+    console.log(this.round);
+
+switch (this.round) {
+  case 0:
       this.image.src = '/assets/img/parts/resized/Lijst-met-appels.png';
       this.backImage = '/assets/img/parts/back/Lijst-met-appels.png';
       this.activeItem = this.obj[0];
       break;
-  case '1':
+  case 1:
       this.image.src = '/assets/img/parts/resized/In-oranje-bol.png';
       this.backImage = '/assets/img/parts/back/In-oranje-bol.png';
       this.activeItem = this.obj[1];
       break;
-  case '2':
+  case 2:
       this.image.src = '/assets/img/parts/resized/Oester-met-parels.png';
       this.backImage = '/assets/img/parts/back/Oester-met-parels.png';
       this.activeItem = this.obj[2];
       break;
-  case '3':
+  case 3:
       this.image.src = '/assets/img/parts/resized/symboliek-hel.png';
       this.backImage = '/assets/img/parts/back/symboliek-hel.png';
       this.activeItem = this.obj[3];
       break;
-  case '4':
+  case 4:
       this.image.src = '/assets/img/parts/resized/Kont-met-bloem.png';
       this.backImage = '/assets/img/parts/back/Kont-met-bloem.png';
       this.activeItem = this.obj[4];
       break;
-  case '5':
+  case 5:
       this.image.src = '/assets/img/parts/resized/Heks-met-uil.png';
       this.backImage = '/assets/img/parts/back/Heks-met-uil.png';
       this.activeItem = this.obj[5];
       break;
-  case '6':
+  case 6:
       this.image.src = '/assets/img/parts/resized/Ei-en-schelp.png';
       this.backImage = '/assets/img/parts/back/Ei-en-schelp.png';
       this.activeItem = this.obj[6];
       break;
-  case '7':
+  case 7:
       this.image.src = '/assets/img/parts/resized/Glazen-bol-bouwwerk.png';
       this.backImage = '/assets/img/parts/back/Glazen-bol-bouwwerk.png';
       this.activeItem = this.obj[7];

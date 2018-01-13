@@ -18,9 +18,8 @@ export class AnswerComponent implements OnInit {
     if (this.activeCategory === 0 || !this.questions) {
       return null;
     }
-
-    return this.questions.filter(a => a.data.CategorieId == (+localStorage.getItem('activeCategory')))[0];
-
+    const rtrn = this.questions.filter(a => a.data.CategorieId == this.activeCategory)[0];
+    return rtrn;
   }
 
   constructor(
@@ -30,13 +29,15 @@ export class AnswerComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe(a => {
-      console.log(a);
-        this.selectedArtwork = a['artwork'];
-        this.questions = a['questions'].map(b => ({ id: b.payload.doc.id, data: b.payload.doc.data() }));
+      this.selectedArtwork = a['artwork'];
+      this.questions = a['questions'].map(b => ({ id: b.payload.doc.id, data: b.payload.doc.data() }));
 
-        this.categoryService.$activeCategory.subscribe(b => {
-          this.activeCategory = b;
-        });
+      this.categoryService.$activeCategory.subscribe(b => {
+        this.activeCategory = this.categoryService.activeCategory;
+        if (this.activeCategory === 0) {
+          this.categoryService.nextCategory();
+        }
+      });
     });
   }
 

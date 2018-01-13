@@ -2,7 +2,7 @@
   <h1>Wat denk jij?</h1>
 </div> -->
 
-
+<ng-container *ngIf="activeQuestion">
 <section class="page-question" *ngIf="activeQuestion.data?.Type !== 'drawing' && activeQuestion.data?.Type !== 'sound'">
   <div class="page-inner">
   </div>
@@ -44,5 +44,6 @@
   <app-foto></app-foto>
   <a *ngIf="inputFilled" class="btn btn-primary page-next" [routerLink]="[activeQuestion.id]">volgende</a>
 </div>
+</ng-container>
 
 

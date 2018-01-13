@@ -7,13 +7,15 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class CategoryService {
   private _categories: any[];
   private $categories;
+  activeCategory = 0;
   $activeCategory: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
   constructor(private db: AngularFirestore) {
     this.$categories = db.collection('categories').valueChanges();
     this.$categories.subscribe(a => {
       this._categories = a;
-      this.$activeCategory.next(this._categories[(+localStorage.getItem('activeCategory') - 1)]);
+      console.log(this.activeCategory);
+      this.$activeCategory.next(this._categories[(+this.activeCategory - 1)]);
     });
   }
 
@@ -22,12 +24,13 @@ export class CategoryService {
   }
 
   nextCategory() {
-   const nextCategory = (+localStorage.getItem('activeCategory') || 0) + 1;
-   localStorage.setItem('activeCategory', `${nextCategory}`);
+    const nextCategory = (this.activeCategory) + 1;
+    this.activeCategory = nextCategory;
 
-   // const nextCategory = (+localStorage.getItem('activeCategory') || 0);
+    // const nextCategory = (+localStorage.getItem('activeCategory') || 0);
     // localStorage.setItem('activeCategory', '2');
-
-    this.$activeCategory.next(this._categories[(+localStorage.getItem('activeCategory') - 1)]);
+    if (this._categories) {
+      this.$activeCategory.next(this._categories[(+this.activeCategory - 1)]);
+    }
   }
 }
