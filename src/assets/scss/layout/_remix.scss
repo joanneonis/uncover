@@ -8,11 +8,26 @@
     border-radius: 50%;
   }
 
-  .remix-text{
-    text-align: center;
-  }
+iframe{
+  @include abs(0);
+  width: 100%;
+  height: 100vh;
+}
 
-  .remix{
-   padding-top: 10px;
-   padding-bottom: 10px;
+.page-remix{
+  .btn-tertiary{
+    position: absolute;
+    z-index: 2;
+    left: 20px;
+    bottom: 20px;
   }
+  .page-next{
+    width: calc(100% - 90px);
+    left: auto;
+  }
+}
+
+.draw-menu.share-buttons {
+  left: -19px;
+  bottom: 52px;
+}

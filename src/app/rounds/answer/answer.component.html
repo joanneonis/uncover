@@ -37,4 +37,12 @@
     <a *ngIf="inputFilled" class="btn btn-primary page-next" [routerLink]="[activeQuestion.id]">volgende</a>
 </div>
 
+<div class="page page-sound" *ngIf="activeQuestion.data?.Type === 'image'">
+  <div class="box-trans-abs">
+    <h2 class="type">{{activeQuestion.data.Title}}</h2>
+  </div>
+  <app-foto></app-foto>
+  <a *ngIf="inputFilled" class="btn btn-primary page-next" [routerLink]="[activeQuestion.id]">volgende</a>
+</div>
+
 

@@ -1,15 +1,38 @@
-<div class="page-heading">
-    <h1>Jouw voorstelling ervaring!</h1>
+<section class="page-remix">
+
+<div class="remix-container">
+  <iframe
+    src="https://www.youtube.com/embed/1mVEt7TNRbI"
+    frameborder="0" gesture="media" allow="encrypted-media"></iframe>
   </div>
 
-  <div class="remix">
-      <iframe width= "400px"
-      src="https://www.youtube.com/embed/1mVEt7TNRbI"
-      frameborder="0" gesture="media" allow="encrypted-media"></iframe>
-  </div>
+  <span>
+    <a (click)="share()" class="btn btn-tertiary btn-circle"><span class="fas fa-share-alt"></span></a>
+    <div class="draw-menu share-buttons" *ngIf="shareListOpen">
+      <ul>
+        <li class="btn btn-primary btn-circle" data-social="facebook">
+          <span class="fab fa-facebook-f"></span>
+        </li>
+        <li class="btn btn-primary btn-circle" data-social="twitter">
+          <span class="fab fa-twitter"></span>
+        </li>
+        <li class="btn btn-primary btn-circle" data-social="instagram">
+          <span class="fab fa-instagram"></span>
+        </li>
+        <li class="btn btn-primary btn-circle" data-social="whatsapp">
+          <span class="fab fa-whatsapp"></span>
+        </li>
+        <li class="btn btn-primary btn-circle" data-social="google">
+          <span class="fab fa-google"></span>
+        </li>
+      </ul>
+    </div>
+</span>
 
-  <section>
-    <div class="share">
+  <button [routerLink]="'/discover'" class="btn btn-primary page-next">volgende</button>
+
+
+  <!-- <div class="share">
       <p>Deel!</p>
       <a class="btn btn-share" data-social="facebook" href="">
         <span class="fab fa-facebook-f"></span>
@@ -31,9 +54,6 @@
         <span class="fab fa-google"></span>
       </a>
 
-    </div>
+    </div> -->
 
-  </section>
-
-
-<button [routerLink]="'/discover'" class="btn btn-primary" > volgende</button>
+</section>

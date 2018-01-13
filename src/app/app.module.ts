@@ -25,6 +25,8 @@ import { DrawingComponent } from './rounds/answer/drawing/drawing.component';
 import { SoundComponent } from './rounds/answer/sound/sound.component';
 import { SoundWavesComponent } from './rounds/answer/sound-waves/sound-waves.component';
 import { PhotoEyeComponent } from './rounds/photo-eye/photo-eye.component';
+import { OwlModule } from 'ng2-owl-carousel';
+import { FotoComponent } from './rounds/answer/foto/foto.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { PhotoEyeComponent } from './rounds/photo-eye/photo-eye.component';
     SoundComponent,
     SoundWavesComponent,
     PhotoEyeComponent,
+    FotoComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import { PhotoEyeComponent } from './rounds/photo-eye/photo-eye.component';
     AngularFireModule.initializeApp(environment.firebase, 'uncover'),
     AngularFirestoreModule,
     AppRoutingModule,
+    OwlModule
   ],
   providers: [CategoryService, ArtworkService, QuestionService, AnswerService],
   bootstrap: [AppComponent]

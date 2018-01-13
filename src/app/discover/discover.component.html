@@ -1,10 +1,38 @@
-<div class="page-heading">
-  <h1>Ontdekken</h1>
-</div>
 
- <img class= "totaal"src="assets/img/discover-img/sluier/totaal.png">
+<section class="page page-discover">
+  <header>
+    <h2 class="page-title">ontdekken {{activeItem}}</h2>
+    <!-- {{artworks | json}} -->
+    <div class="slider">
+        <owl-carousel #owlElement
+            [options]="OwlOptions"
+            [carouselClasses]="['owl-theme', 'row', 'sliding']">
+            <div class="item" *ngFor="let item of artworks; let i = index">
+                <img [src]="item.data.image" alt="item.data.title">
+            </div>
+        </owl-carousel>
+    </div>
+   <div class="layers-buttons">
+      <a class="btn btn-secondary btn-xs active">Vorm</a>
+      <a class="btn btn-secondary btn-xs">Inhoud</a>
+      <a class="btn btn-secondary btn-xs">Functie</a>
+      <a class="btn btn-secondary btn-xs">Context</a>
+      <a class="btn btn-secondary btn-xs">Samenhang</a>
+      <a class="btn btn-secondary btn-xs">Betekenis</a>
+      <a class="btn btn-secondary btn-xs">Beteknis maker</a>
+   </div>
+  </header>
+  <section class="slider-content">
+    <blockquote>
+      Dobbelstenen staan voor gokken
+    </blockquote>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit dolore, blanditiis facilis doloribus, quaerat natus repellat ea officiis totam vitae illo a fugit quis officia? Eveniet ab inventore dolorum possimus!
+    </p>
+  </section>
+</section>
 
-
+<!--
 <div id="div-btns">
 <button class="button-discover"> Symboliek </button>
 <button class="button-discover"> Verhalen </button>
@@ -27,7 +55,7 @@
 ><p>
 Gokken werd gezien als een veradelijk en kwaad tijdverdrijf.
 <br><br>
-In het schilderij van Bosch spelen niet de mensen maar de andere wezens de spellen. 
+In het schilderij van Bosch spelen niet de mensen maar de andere wezens de spellen.
 De mensen worden gemarteld. Het lijkt erop alsof er iets op het spel stond.
 <br><br>
 In tegenstelling tot veel andere werken uit die tijd worden hier de mensen
@@ -44,4 +72,4 @@ ook mentaal gemarteld. In andere werken komt alleen fysieke marteling voor.
 ><p>
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores ullam fugit, id, illum possimus labore eos iure et velit voluptate sapiente dignissimos debitis similique quas quos maxime deserunt mollitia incidunt.
 </p>
-</div>
+</div> -->

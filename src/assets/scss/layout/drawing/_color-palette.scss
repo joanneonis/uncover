@@ -22,7 +22,7 @@ $palette-animation-duration: .05s;
 }
 
 @for $i from 1 to 10 {
-  .color-pallete li:nth-child(#{$i}) { animation-delay: ($palette-number*$palette-animation-duration) - $i * $palette-animation-duration; }
+  .draw-menu li:nth-child(#{$i}) { animation-delay: ($palette-number*$palette-animation-duration) - $i * $palette-animation-duration; }
 }
 
 
