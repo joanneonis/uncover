@@ -1,0 +1,6 @@
+
+<video (load)="load()" controls autoplay #video [attr.src]="src">
+    <source [src]="src" type="audio/mp3" #audioplayersource/>
+</video>
+<a (click)="startRecording()" class="btn">start</a>
+<a (click)="stopRecording()" class="btn">stop</a>

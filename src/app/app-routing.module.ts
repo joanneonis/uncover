@@ -14,6 +14,7 @@ import { ArtworkService } from './services/artwork.service';
 import { QuestionService } from './services/question.service';
 import { AnswerService } from './services/answer.service';
 import { PhotoEyeComponent } from './rounds/photo-eye/photo-eye.component';
+import { VideoComponent } from './rounds/answer/video/video.component';
 
 
 const routes: Routes = [
@@ -81,6 +82,10 @@ const routes: Routes = [
   {
     path: 'photo-eye',
     component: PhotoEyeComponent
+  },
+  {
+    path: 'videotest',
+    component: VideoComponent
   }
 ];
 

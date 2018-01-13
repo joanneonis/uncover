@@ -27,6 +27,7 @@ import { SoundWavesComponent } from './rounds/answer/sound-waves/sound-waves.com
 import { PhotoEyeComponent } from './rounds/photo-eye/photo-eye.component';
 import { OwlModule } from 'ng2-owl-carousel';
 import { FotoComponent } from './rounds/answer/foto/foto.component';
+import { VideoComponent } from './rounds/answer/video/video.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { FotoComponent } from './rounds/answer/foto/foto.component';
     SoundWavesComponent,
     PhotoEyeComponent,
     FotoComponent,
+    VideoComponent,
   ],
   imports: [
     BrowserModule,
