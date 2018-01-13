@@ -1,6 +1,18 @@
 
-<video (load)="load()" controls autoplay #video [attr.src]="src">
-    <source [src]="src" type="audio/mp3" #audioplayersource/>
-</video>
-<a (click)="startRecording()" class="btn">start</a>
-<a (click)="stopRecording()" class="btn">stop</a>
+<a (click)="isRecording = 'open'" class="btn btn-circle btn-lg start-video">
+  <span class="fas fa-video"></span>
+</a>
+
+<div class="video-overlay {{isRecording}}">
+    <video (load)="load()" controls autoplay #video>
+        <source [src]="src" type="audio/mp3" #audioplayersource/>
+    </video>
+    <a *ngIf="isRecording == 'recording'" (click)="stopRecording()" class="btn page-next">Stop opnemen</a>
+    <a *ngIf="isRecording == 'open'" (click)="startRecording()" class="btn page-next">start opnemen</a>
+
+    <div class="video-controls" *ngIf="isRecording == 'recorded'">
+        <a (click)="play()" class="btn btn-lg btn-circle"><span class="fas fa-play"></span></a>
+        <a (click)="trash()" class="btn btn-tertiary btn-lg btn-circle"><span class="far fa-trash-alt"></span></a>
+    </div>
+</div>
+<!-- [class.active]="" -->

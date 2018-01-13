@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./photo-eye.component.css']
 })
 export class PhotoEyeComponent implements OnInit {
+  inputFilled = false;
 
   constructor() { }
 
   ngOnInit() {
   }
+  handleInputFilled(e: boolean) {
+    this.inputFilled = true;
+  }
 
+  handleInputEmpty(e: boolean) {
+    this.inputFilled = false;
+  }
 }
