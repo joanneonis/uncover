@@ -61,3 +61,6 @@ import { VideoComponent } from './rounds/answer/video/video.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// manifest and json
+// https://medium.com/@cdeniz/transforming-an-existing-angular-application-into-a-progressive-web-app-d48869ba391f
