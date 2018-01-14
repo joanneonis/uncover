@@ -3,7 +3,22 @@
 </div> -->
 
 <ng-container *ngIf="activeQuestion">
-<section class="page-question" *ngIf="activeQuestion.data?.Type !== 'drawing' && activeQuestion.data?.Type !== 'sound'">
+<section class="page-question" *ngIf="activeQuestion.data?.Type !== 'drawing' && activeQuestion.data?.Type !== 'sound'" [class.has-modal-open]="modalTextOpen">
+    <a (click)="modalTextOpen = true" class="info">i</a>
+    <div class="modal">
+      <a (click)="modalTextOpen = false" class="info">x</a>
+      <div class="modal-inner">
+        <div class="modal-content">
+            <h2>Antwoord geven</h2>
+            <p>
+              Geef antwoord op de vraag in de vorm van tekst.
+              Maak in zo min mogelijk woorden duidelijk wat jouw antwoord op de vraag is.
+            </p>
+            <a (click)="modalTextOpen = false" class="btn">begrepen</a>
+        </div>
+      </div>
+    </div>
+
   <div class="page-inner">
   </div>
   <div class="page-content page-question-inner">
@@ -18,17 +33,53 @@
 
 </section>
 
-<section class="answer-draw" *ngIf="activeQuestion.data?.Type === 'drawing'">
+<section class="answer-draw" *ngIf="activeQuestion.data?.Type === 'drawing'" [class.has-modal-open]="modalDrawOpen">
+  <a (click)="modalDrawOpen = true" class="info">i</a>
+  <div class="modal">
+    <a (click)="modalDrawOpen = false" class="info">x</a>
+    <div class="modal-inner">
+      <div class="modal-content">
+          <h2>Tekenen</h2>
+          <p>
+            Geef antwoord op de vraag in de vorm van een tekening.
+            Je kan tekenen door met je vinger op het scherm te vegen.
+            Links onderin kan je nog de grootte van de punt en de kleur veranderen.
+          </p>
+          <a (click)="modalDrawOpen = false" class="btn">begrepen</a>
+      </div>
+    </div>
+  </div>
+
   <div class="box-trans-abs">
     <h2 class="type">{{activeQuestion.data.Title}}</h2>
   </div>
   <a *ngIf="inputFilled" class="btn btn-primary btn-next" [routerLink]="[activeQuestion.id]">volgende</a>
   <div class="answer-draw-inner">
-    <app-drawing (inputFilled)="handleInputFilled($event)" (inputEmpty)="handleInputEmpty($event)"></app-drawing>
+    <app-drawing
+    (inputFilled)="handleInputFilled($event)"
+    (inputEmpty)="handleInputEmpty($event)"
+    (modelOpen)="handleModal($event)"
+    ></app-drawing>
   </div>
 </section>
 
-<div class="page page-sound" *ngIf="activeQuestion.data?.Type === 'sound'">
+<div class="page page-sound" *ngIf="activeQuestion.data?.Type === 'sound'" [class.has-modal-open]="modalSoundOpen">
+  <a (click)="modalSoundOpen = true" class="info">i</a>
+  <div class="modal">
+    <a (click)="modalSoundOpen = false" class="info">x</a>
+    <div class="modal-inner">
+      <div class="modal-content">
+          <h2>Geluid opnemen</h2>
+          <p>
+            Geef antwoord op de vraag in de vorm van geluid.
+            Leg je vraag uit, fluister het, of maak op een ander manier geluid om uit te beelden wat jij van dit kunstwerk vind.
+          </p>
+          <a (click)="modalSoundOpen = false" class="btn">begrepen</a>
+      </div>
+    </div>
+  </div>
+
+
     <div class="box-trans-abs">
       <h2 class="type">{{activeQuestion.data.Title}}</h2>
     </div>
@@ -37,7 +88,22 @@
     <a *ngIf="inputFilled" class="btn btn-primary page-next" [routerLink]="[activeQuestion.id]">volgende</a>
 </div>
 
-<div class="page page-sound" *ngIf="activeQuestion.data?.Type === 'image'">
+<div class="page page-sound" *ngIf="activeQuestion.data?.Type === 'image'" [class.has-modal-open]="modalImageOpen">
+    <a (click)="modalImageOpen = true" class="info">i</a>
+    <div class="modal">
+      <a (click)="modalImageOpen = false" class="info">x</a>
+      <div class="modal-inner">
+        <div class="modal-content">
+            <h2>Foto maken</h2>
+            <p>
+              Geef antwoord op de vraag in de vorm van een foto.
+              Neem een foto van een deel van het kunstwerk waarvan jij vind dat het past bij de vraag.
+            </p>
+            <a (click)="modalImageOpen = false" class="btn">begrepen</a>
+        </div>
+      </div>
+    </div>
+
   <div class="box-trans-abs">
     <h2 class="type">{{activeQuestion.data.Title}}</h2>
   </div>

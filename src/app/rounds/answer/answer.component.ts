@@ -13,6 +13,10 @@ export class AnswerComponent implements OnInit {
   activeCategory = 0;
   answerTxt = '';
   inputFilled = false;
+  modalDrawOpen = false;
+  modalSoundOpen = false;
+  modalImageOpen = false;
+  modalTextOpen = false;
 
   get activeQuestion(): any {
     if (this.activeCategory === 0 || !this.questions) {
@@ -36,6 +40,9 @@ export class AnswerComponent implements OnInit {
         this.activeCategory = this.categoryService.activeCategory;
         if (this.activeCategory === 0) {
           this.categoryService.nextCategory();
+        }
+        if (this.activeCategory === 1) {
+          this.modalDrawOpen = true;
         }
       });
     });

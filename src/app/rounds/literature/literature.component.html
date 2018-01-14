@@ -1,6 +1,21 @@
 
 
-<div class="page page-category">
+<div class="page page-category" [class.has-modal-open]="modalOpen">
+  <a (click)="modalOpen = true" class="info info-dark">i</a>
+    <div class="modal">
+      <a (click)="modalOpen = false" class="info info-dark">x</a>
+      <div class="modal-inner">
+        <div class="modal-content">
+            <h2>Literatuur</h2>
+            <p>
+              Hier vind je nog extra informatie over het kunstwerk.
+              Dit kan vanuit verschillende hoeken komen: boeken, journalastiek, video's etc.
+            </p>
+            <a (click)="modalOpen = false" class="btn">begrepen</a>
+        </div>
+      </div>
+    </div>
+
     <div class="page-inner">
         <h2 class="type">{{question.data.LiteratureTitle}}</h2>
         <p>

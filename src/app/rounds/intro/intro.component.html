@@ -1,5 +1,19 @@
 
-<section class="section-wheel" *ngIf="!selectedArtwork">
+<section class="section-wheel" *ngIf="!selectedArtwork" [class.has-modal-open]="modalScratchOpen">
+  <a (click)="modalScratchOpen = true" class="info">i</a>
+  <div class="modal">
+    <a (click)="modalScratchOpen = false" class="info">x</a>
+    <div class="modal-inner">
+      <div class="modal-content">
+          <h2>Wegkrassen</h2>
+          <p>
+            Ontdek welke scene's Tim Walker gebruikt heeft voor zijn kunstwerken.
+            <strong>Kras</strong> het "oude" Jeroen Bosch kunstwerk weg om de hedendaagse interpretatie ervan te ontdekken!
+          </p>
+          <a (click)="modalScratchOpen = false" class="btn">begrepen</a>
+      </div>
+    </div>
+  </div>
 
   <div id="container" [style.background-image]="'url(' + backImage + ')'">
 
@@ -48,7 +62,22 @@
 
   <!-- <button class="btn btn-primary page-next" (click)="randomArtwork()">Volgende</button> -->
 
-<section class="page page-scan" *ngIf="selectedArtwork && !showCategory">
+<section class="page page-scan" *ngIf="selectedArtwork && !showCategory" [class.has-modal-open]="modalScanOpen">
+    <a (click)="modalScanOpen = true" class="info info-dark">i</a>
+    <div class="modal">
+      <a (click)="modalScanOpen = false" class="info info-dark">x</a>
+      <div class="modal-inner">
+        <div class="modal-content">
+            <h2>Scannen</h2>
+            <p>
+              <em>Dit is voor nu een simulatie.</em>
+              Als je de camera aan hebt en deze richt op het schilderij, herktent de app waar je bent, en kan je de {{round}}e ronde beginnen.
+            </p>
+            <a (click)="modalScanOpen = false" class="btn">begrepen</a>
+        </div>
+      </div>
+    </div>
+
   <div class="page-heading">
     <h1 class="h3">Scan het kunstwerk</h1>
     <p>Mik de camera op het kunstwerk en de rest gaat vanzelf.</p>
@@ -74,7 +103,22 @@
 </section> -->
 
 
-<div class="page page-category" *ngIf="showCategory">
+<div class="page page-category" *ngIf="showCategory" [class.has-modal-open]="modalRoundOpen">
+    <a (click)="modalRoundOpen = true" class="info info-dark">i</a>
+    <div class="modal">
+      <a (click)="modalRoundOpen = false" class="info info-dark">x</a>
+      <div class="modal-inner">
+        <div class="modal-content">
+            <h2>Ronde informatie</h2>
+            <p>
+              Dit is de informatie over de vraag die je gaat krijgen.
+              Dus neem deze informatie goed in je op!
+            </p>
+            <a (click)="modalRoundOpen = false" class="btn">begrepen</a>
+        </div>
+      </div>
+    </div>
+
   <div class="page-inner">
       <h2 class="type">{{ (activeCategory | async).Title}}<small>Ronde {{round}} van 8</small></h2>
       <p>

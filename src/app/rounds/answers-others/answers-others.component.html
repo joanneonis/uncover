@@ -1,5 +1,21 @@
 
-<section class="page-anwsser page-question">
+<section class="page-anwsser page-question" [class.has-modal-open]="modalOpen">
+  <a (click)="modalOpen = true" class="info info-dark">i</a>
+    <div class="modal">
+      <a (click)="modalOpen = false" class="info info-dark">x</a>
+      <div class="modal-inner">
+        <div class="modal-content">
+            <h2>Antwoorden van anderen</h2>
+            <p>
+              Je hebt eerst vanuit jouw perspectief gekeken.
+              Nu zie je wat anderen hebben geantwoordt, wat vind je hiervan?
+              Kies het antwoord dat je het beste vind.
+            </p>
+            <a (click)="modalOpen = false" class="btn">begrepen</a>
+        </div>
+      </div>
+    </div>
+
     <div class="page-inner">
         <div class="box-trans">
             <h2 class="type">{{question.data.Title}} {{question.data.Type}}</h2>

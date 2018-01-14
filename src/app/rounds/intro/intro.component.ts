@@ -13,7 +13,9 @@ import * as $ from 'jquery';
 })
 export class IntroComponent implements AfterViewInit {
 @ViewChild('canvas') canvas: ElementRef;
-
+  modalScratchOpen = false;
+  modalScanOpen = false;
+  modalRoundOpen = false;
   categories: Observable<any>;
   activeCategory: any = this.categoryService.$activeCategory;
   selectedArtwork: any;
@@ -195,6 +197,11 @@ export class IntroComponent implements AfterViewInit {
     this.round = this.categoryService.activeCategory;
     // this.round = this.activeCategory;
     console.log(this.round);
+
+    if (this.round === 0) {
+      console.log('im open');
+      this.modalScratchOpen = true;
+    }
 
 switch (this.round) {
   case 0:
