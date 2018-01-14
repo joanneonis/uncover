@@ -35,7 +35,6 @@ round;
     }
 
     this.route.data.subscribe(a => {
-      console.log(a);
         this.selectedArtwork = a['artwork'];
         this.answers = a['answers'];
         this.question = {

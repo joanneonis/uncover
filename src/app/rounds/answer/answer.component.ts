@@ -38,9 +38,6 @@ export class AnswerComponent implements OnInit {
 
       this.categoryService.$activeCategory.subscribe(b => {
         this.activeCategory = this.categoryService.activeCategory;
-        if (this.activeCategory === 0) {
-          this.categoryService.nextCategory();
-        }
         if (this.activeCategory === 1) {
           this.modalDrawOpen = true;
         }

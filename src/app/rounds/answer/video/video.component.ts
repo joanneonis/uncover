@@ -39,7 +39,6 @@ stopRecordingCallback(ctx) {
   this.inputFilled.emit(true);
   //  this.video.nativeElement.src = this.video.nativeElement.srcObject = null;
 //    this.video.nativeElement.src = URL.createObjectURL(this.recorder.getBlob());
-    console.log(ctx);
     ctx.src = ctx.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(ctx.recorder.getBlob()));
     ctx.video.nativeElement.load();
 //    ctx.video.nativeElement.play();

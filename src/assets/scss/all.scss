@@ -49,3 +49,7 @@ body{
 @import 'layout/video';
 
 @import 'layout/page-welcome';
+
+html, body, *{
+  overscroll-behavior-y: contain;
+}

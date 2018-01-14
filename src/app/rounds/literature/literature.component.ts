@@ -23,7 +23,6 @@ modalOpen;
     this.round = this.categoryService.activeCategory;
 
     this.route.data.subscribe(a => {
-      console.log(a);
         this.selectedArtwork = a['artwork'];
         this.question = {
           id: a['question'].payload.id,

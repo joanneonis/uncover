@@ -88,8 +88,6 @@ export class DrawingComponent implements AfterViewInit {
     const centerWidth = that.canvasWidth / 2 - width / 2;
     const centerHeight = that.canvasHeight / 2 - height / 2;
 
-    console.log(ratio, width, height);
-
     const base_image = new Image();
     base_image.src = 'assets/img/draw-resized.png';
     base_image.onload = function(){
@@ -152,8 +150,8 @@ export class DrawingComponent implements AfterViewInit {
   }
 
   setLineWidth() {
-    console.log(this.selectedLine);
-    console.log(this.brushSizes.length);
+//    console.log(this.selectedLine);
+//    console.log(this.brushSizes.length);
     this.lineWidth = this.brushSizes[this.selectedLine];
 
     if (this.selectedLine < this.brushSizes.length) {

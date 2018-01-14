@@ -14,8 +14,8 @@ export class CategoryService {
     this.$categories = db.collection('categories').valueChanges();
     this.$categories.subscribe(a => {
       this._categories = a;
-      console.log(this.activeCategory);
       this.$activeCategory.next(this._categories[(+this.activeCategory - 1)]);
+      console.log('constructor categorie:', this.activeCategory);
     });
   }
 
@@ -32,5 +32,7 @@ export class CategoryService {
     if (this._categories) {
       this.$activeCategory.next(this._categories[(+this.activeCategory - 1)]);
     }
+
+    console.log('did next cat, now it is:', this.activeCategory);
   }
 }

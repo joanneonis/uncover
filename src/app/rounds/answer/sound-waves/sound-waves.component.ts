@@ -73,10 +73,10 @@ export class SoundWavesComponent implements AfterViewInit {
       navigator.mediaDevices.getUserMedia({audio: true}).then(stream => {
         this.setAudioStream(stream);
       }, error => {
-        console.log('It doest work');
+        console.log('microphone doesnt work');
       });
     } else {
-      console.log('It works');
+      console.log('microphone works');
     }
   }
   setAudioStream(stream) {
@@ -160,7 +160,6 @@ export class SoundWavesComponent implements AfterViewInit {
   // Process the microphone input
   processInput(audioProcessingEvent, ctx) {
     if (ctx.isRecording) {
-      console.log('Render bars');
       const array = new Uint8Array(ctx.analyser.frequencyBinCount);
 
       ctx.analyser.getByteFrequencyData(array);
