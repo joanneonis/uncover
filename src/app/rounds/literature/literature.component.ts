@@ -11,6 +11,7 @@ export class LiteratureComponent implements OnInit {
 selectedArtwork: any;
 question: any;
 round = 0;
+modalOpen;
 
   constructor(
     private route: ActivatedRoute,

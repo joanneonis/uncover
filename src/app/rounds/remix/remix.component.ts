@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RemixComponent implements OnInit {
   shareListOpen = false;
+  modalOpen = true;
 
   constructor() { }
 
@@ -23,9 +24,9 @@ export class RemixComponent implements OnInit {
     }
 
     windowVar.share({
-        title: 'testbericht',
-        text: 'Berichtekst',
-        url: 'https://receptenapp-fe43f.firebaseapp.com'
+        title: 'Tim walker Uncovered',
+        text: 'Mijn museumtrip remixed',
+        url: 'https://uncover-b9e48.firebaseapp.com/'
     })
       .then(() => console.log('Successful share'))
       .catch(error => this.shareListOpen = !this.shareListOpen);

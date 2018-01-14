@@ -1,4 +1,19 @@
-<section class="page-remix">
+<section class="page-remix" [class.has-modal-open]="modalOpen">
+  <a (click)="modalOpen = true" class="info">i</a>
+  <div class="modal">
+    <a (click)="modalOpen = false" class="info">x</a>
+    <div class="modal-inner">
+      <div class="modal-content">
+          <h2>Remix</h2>
+          <p>
+            Leuk dat je hebt meegespeeld!
+            We hebben jouw bevindingen voor je geremixt!
+            Zo kan je je ervaring nog eens terugbekijken of delen.
+          </p>
+          <a (click)="modalOpen = false" class="btn">begrepen</a>
+      </div>
+    </div>
+  </div>
 
 <div class="remix-container">
   <iframe

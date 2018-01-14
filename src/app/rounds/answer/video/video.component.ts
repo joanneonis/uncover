@@ -61,17 +61,18 @@ startRecording() {
         // release camera on stopRecording
         that.recorder.camera = camera;
     });
-}
-
-stopRecording() {
-  const that = this;
-    this.recorder.stopRecording( a => {that.stopRecordingCallback(that); });
   }
+
+  stopRecording() {
+    const that = this;
+      this.recorder.stopRecording( a => {that.stopRecordingCallback(that); });
+    }
 
   load() {
     this.video.nativeElement.play();
   }
   play() {
+    this.video.nativeElement.currentTime = 0;
     this.isRecording = 'playing';
     this.video.nativeElement.play();
   }

@@ -47,6 +47,16 @@
   .has-modal-open &:before{
     transform: translate(-50%, -100%) rotate(40deg);
     opacity: 1;
+
+    @media (max-height:650px){
+      transform: translate(-50%, -86%) rotate(40deg);
+    }
+    @media (max-width: 400px){
+      transform: translate(-50%, -86%) rotate(40deg);
+    }
+    @media (max-width: 450px) and (max-height: 800px){
+      transform: translate(-50%, -92%) rotate(40deg);
+    }
   }
 
   .modal-content{

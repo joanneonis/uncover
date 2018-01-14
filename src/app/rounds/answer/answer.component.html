@@ -4,9 +4,9 @@
 
 <ng-container *ngIf="activeQuestion">
 <section class="page-question" *ngIf="activeQuestion.data?.Type !== 'drawing' && activeQuestion.data?.Type !== 'sound'" [class.has-modal-open]="modalTextOpen">
-    <a (click)="modalTextOpen = true" class="info">i</a>
+    <a (click)="modalTextOpen = true" class="info info-dark">i</a>
     <div class="modal">
-      <a (click)="modalTextOpen = false" class="info">x</a>
+      <a (click)="modalTextOpen = false" class="info info-dark">x</a>
       <div class="modal-inner">
         <div class="modal-content">
             <h2>Antwoord geven</h2>
@@ -22,7 +22,7 @@
   <div class="page-inner">
   </div>
   <div class="page-content page-question-inner">
-    <h2>{{activeQuestion.data.Title}}</h2>
+    <div class="box-trans"><h2>{{activeQuestion.data.Title}}</h2></div>
   </div>
 
   <div class="page-anwser">

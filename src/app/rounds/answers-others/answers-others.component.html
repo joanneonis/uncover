@@ -1,8 +1,7 @@
-
-<section class="page-anwsser page-question" [class.has-modal-open]="modalOpen">
-  <a (click)="modalOpen = true" class="info info-dark">i</a>
+<section class="page-answers" [class.has-modal-open]="modalOpen">
+  <a (click)="modalOpen = true" class="info info">i</a>
     <div class="modal">
-      <a (click)="modalOpen = false" class="info info-dark">x</a>
+      <a (click)="modalOpen = false" class="info info">x</a>
       <div class="modal-inner">
         <div class="modal-content">
             <h2>Antwoorden van anderen</h2>
@@ -16,30 +15,30 @@
       </div>
     </div>
 
-    <div class="page-inner">
-        <div class="box-trans">
-            <h2 class="type">{{question.data.Title}} {{question.data.Type}}</h2>
-        </div>
-
-        <div class="page-answers">
-            <ul class="answers" *ngIf="!question.data.Type" >
+    <div class="answers">
+        <div class="answers-inner">
+            <h2 class="type">{{question.data.Title}}</h2>
+            <ul class="answers-list" *ngIf="!question.data.Type" >
                 <li [routerLink]="'literature'" *ngFor="let a of answers"><a>{{a.Answer}}</a></li>
             </ul>
-            <ul class="answers answers-img" *ngIf="question.data.Type == 'drawing'" >
+            <ul class="answers-list answers-list-img" *ngIf="question.data.Type == 'drawing'" >
                 <li [routerLink]="'literature'" *ngFor="let a of answers"><a>
                   <img [src]="a.Answer" alt="">
                 </a></li>
             </ul>
-            <ul class="answers answers-sound" *ngIf="question.data.Type == 'sound'" >
+            <ul class="answers-list answers-list-sound" *ngIf="question.data.Type == 'sound'" >
                 <li *ngFor="let a of answers"><a>
-                  <audio controls [src]="a.Answer"></audio>
+                  <!-- <a (click)="playThis($event)" class="btn btn-circle">
+                    <span class="fas fa-play"></span>
+                    <span class="fas fa-pause"></span>
+                  </a> -->
+                  <audio volume="1.0" controls [src]="a.Answer"></audio>
                   <a [routerLink]="'literature'" class="btn btn-xs">kies</a>
                 </a></li>
             </ul>
         </div>
     </div>
 
-  <!-- <button [routerLink]="'/remix'" class="btn page-next btn-primary" > volgende</button> -->
 </section>
 
 
