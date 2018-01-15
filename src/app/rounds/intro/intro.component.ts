@@ -235,10 +235,11 @@ ngOnInit() {
 }
 
   ngAfterViewInit() {
+    if (!this.canvas) {
+      return;
+    }
     this.brush.src = '/assets/img/brush.png';
     this.ctx = this.canvas.nativeElement.getContext('2d');
-
-
 
     const that = this;
 

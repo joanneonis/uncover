@@ -17,3 +17,24 @@
    }
   }
 
+
+  .page-literature{
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    height: auto;
+
+    &-inner {
+      margin: 11vw;
+      text-align: center;
+      border: 4px solid black;
+      padding: 20px;
+    }
+
+     img{
+      width: 120vw;
+      height: auto;
+      margin-left: calc(-20vw + -20px);
+      margin-bottom: -10vw;
+     }
+    }

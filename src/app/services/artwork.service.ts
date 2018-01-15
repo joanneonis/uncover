@@ -11,6 +11,7 @@ export class ArtworkService implements Resolve<any> {
     const artworkId = route.params['artworkId'];
     const artwork = this.getById(artworkId);
 
+    // Subscribe to artworks
     return new Promise((r, reject) => {
       artwork.valueChanges().first().subscribe((a) => {r(a); }, reject);
     });
@@ -18,10 +19,12 @@ export class ArtworkService implements Resolve<any> {
 
   constructor(private db: AngularFirestore) {}
 
+  // Retrieve artworks function
   getArtworks() {
     return this.db.collection('artworks').snapshotChanges();
   }
 
+  // Retrieve artworks by id function
   getById (id: string) {
     return this.db.doc(`/artworks/${id}`);
   }
