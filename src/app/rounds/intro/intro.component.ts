@@ -11,7 +11,7 @@ import * as $ from 'jquery';
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.css']
 })
-export class IntroComponent implements OnInit {
+export class IntroComponent implements OnInit, AfterViewInit {
 @ViewChild('canvas') canvas: ElementRef;
   modalScratchOpen = false;
   modalScanOpen = false;
@@ -171,70 +171,74 @@ export class IntroComponent implements OnInit {
     private router: Router) {
   }
 
-  ngOnInit() {
+ngOnInit() {
+  this.route.data.subscribe(a => {
+    if (a['artwork']) {
+      this.selectedArtwork = a['artwork'];
+    }
+  });
+
+  this.categoryService.getCategories().subscribe(a => {
+    this.categories = a;
+  });
+
+  this.artworkService.getArtworks().subscribe(a => {
+    this.artworks = a.map(b => ({ id: b.payload.doc.id, data: b.payload.doc.data() }));
+  });
+
+  this.round = this.categoryService.activeCategory;
+  if (this.round === 0) {
+    this.modalScratchOpen = true;
+  }
+
+  switch (this.round) {
+    case 0:
+        this.image.src = '/assets/img/parts/resized/Lijst-met-appels.png';
+        this.backImage = '/assets/img/parts/back/Lijst-met-appels.png';
+        this.activeItem = this.obj[0];
+        break;
+    case 1:
+        this.image.src = '/assets/img/parts/resized/In-oranje-bol.png';
+        this.backImage = '/assets/img/parts/back/In-oranje-bol.png';
+        this.activeItem = this.obj[1];
+        break;
+    case 2:
+        this.image.src = '/assets/img/parts/resized/Oester-met-parels.png';
+        this.backImage = '/assets/img/parts/back/Oester-met-parels.png';
+        this.activeItem = this.obj[2];
+        break;
+    case 3:
+        this.image.src = '/assets/img/parts/resized/symboliek-hel.png';
+        this.backImage = '/assets/img/parts/back/symboliek-hel.png';
+        this.activeItem = this.obj[3];
+        break;
+    case 4:
+        this.image.src = '/assets/img/parts/resized/Kont-met-bloem.png';
+        this.backImage = '/assets/img/parts/back/Kont-met-bloem.png';
+        this.activeItem = this.obj[4];
+        break;
+    case 5:
+        this.image.src = '/assets/img/parts/resized/Heks-met-uil.png';
+        this.backImage = '/assets/img/parts/back/Heks-met-uil.png';
+        this.activeItem = this.obj[5];
+        break;
+    case 6:
+        this.image.src = '/assets/img/parts/resized/Ei-en-schelp.png';
+        this.backImage = '/assets/img/parts/back/Ei-en-schelp.png';
+        this.activeItem = this.obj[6];
+        break;
+    case 7:
+        this.image.src = '/assets/img/parts/resized/Glazen-bol-bouwwerk.png';
+        this.backImage = '/assets/img/parts/back/Glazen-bol-bouwwerk.png';
+        this.activeItem = this.obj[7];
+  }
+}
+
+  ngAfterViewInit() {
     this.brush.src = '/assets/img/brush.png';
     this.ctx = this.canvas.nativeElement.getContext('2d');
 
-    this.route.data.subscribe(a => {
-      if (a['artwork']) {
-        this.selectedArtwork = a['artwork'];
-      }
-    });
 
-    this.categoryService.getCategories().subscribe(a => {
-      this.categories = a;
-    });
-
-    this.artworkService.getArtworks().subscribe(a => {
-      this.artworks = a.map(b => ({ id: b.payload.doc.id, data: b.payload.doc.data() }));
-    });
-
-    this.round = this.categoryService.activeCategory;
-    if (this.round === 0) {
-      this.modalScratchOpen = true;
-    }
-
-    switch (this.round) {
-      case 0:
-          this.image.src = '/assets/img/parts/resized/Lijst-met-appels.png';
-          this.backImage = '/assets/img/parts/back/Lijst-met-appels.png';
-          this.activeItem = this.obj[0];
-          break;
-      case 1:
-          this.image.src = '/assets/img/parts/resized/In-oranje-bol.png';
-          this.backImage = '/assets/img/parts/back/In-oranje-bol.png';
-          this.activeItem = this.obj[1];
-          break;
-      case 2:
-          this.image.src = '/assets/img/parts/resized/Oester-met-parels.png';
-          this.backImage = '/assets/img/parts/back/Oester-met-parels.png';
-          this.activeItem = this.obj[2];
-          break;
-      case 3:
-          this.image.src = '/assets/img/parts/resized/symboliek-hel.png';
-          this.backImage = '/assets/img/parts/back/symboliek-hel.png';
-          this.activeItem = this.obj[3];
-          break;
-      case 4:
-          this.image.src = '/assets/img/parts/resized/Kont-met-bloem.png';
-          this.backImage = '/assets/img/parts/back/Kont-met-bloem.png';
-          this.activeItem = this.obj[4];
-          break;
-      case 5:
-          this.image.src = '/assets/img/parts/resized/Heks-met-uil.png';
-          this.backImage = '/assets/img/parts/back/Heks-met-uil.png';
-          this.activeItem = this.obj[5];
-          break;
-      case 6:
-          this.image.src = '/assets/img/parts/resized/Ei-en-schelp.png';
-          this.backImage = '/assets/img/parts/back/Ei-en-schelp.png';
-          this.activeItem = this.obj[6];
-          break;
-      case 7:
-          this.image.src = '/assets/img/parts/resized/Glazen-bol-bouwwerk.png';
-          this.backImage = '/assets/img/parts/back/Glazen-bol-bouwwerk.png';
-          this.activeItem = this.obj[7];
-    }
 
     const that = this;
 
