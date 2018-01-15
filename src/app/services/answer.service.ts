@@ -13,6 +13,7 @@ export class AnswerService implements Resolve<any> {
 
     const artwork = this.getAnswers(artworkId, questionId);
 
+    // subscribe to artworks
     return new Promise((r, reject) => {
       artwork.first().subscribe((a) => { r(a); }, reject);
     });
@@ -20,6 +21,7 @@ export class AnswerService implements Resolve<any> {
 
   constructor(private db: AngularFirestore) {}
 
+  // Retrieve answers from firestore db
   getAnswers(artworkId: string, questionId: string) {
     return this.db.collection(`artworks/${artworkId}/Questions/${questionId}/Answers`).valueChanges();
   }

@@ -10,6 +10,7 @@ export class CategoryService {
   activeCategory = 0;
   $activeCategory: BehaviorSubject<any> = new BehaviorSubject<any>({});
 
+  // Subscribe to categories
   constructor(private db: AngularFirestore) {
     this.$categories = db.collection('categories').valueChanges();
     this.$categories.subscribe(a => {
@@ -19,20 +20,21 @@ export class CategoryService {
     });
   }
 
+  // Retrieve categories
   getCategories() {
     return this.$categories || this.db.collection('categories').valueChanges();
   }
 
+  // Set next round in game
   nextCategory() {
     const nextCategory = (this.activeCategory) + 1;
     this.activeCategory = nextCategory;
 
-    // const nextCategory = (+localStorage.getItem('activeCategory') || 0);
-    // localStorage.setItem('activeCategory', '2');
     if (this._categories) {
       this.$activeCategory.next(this._categories[(+this.activeCategory - 1)]);
     }
 
-    console.log('did next cat, now it is:', this.activeCategory);
+    // For testing rounds
+    // console.log('did next cat, now it is:', this.activeCategory);
   }
 }

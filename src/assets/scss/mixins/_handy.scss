@@ -11,24 +11,10 @@
 //    }
 //  }
 //
-// (c) christian wijnia
 @mixin bp($width, $minmax: min) {
   @media screen and (#{$minmax}-width: $width) {
       @content;
   }
-}
-
-//The Chris Grid
-@mixin grid-row($col-gutter: 0) {
-	@include clearfix;
-	margin-left:-$col-gutter / 2;
-	margin-right:-$col-gutter / 2;
-}
-@mixin grid-col($col-span:6, $col-total:12, $col-gutter: 0){
-	width:percentage($col-span / $col-total);
-	float:left;
-	padding-left:$col-gutter / 2;
-	padding-right:$col-gutter / 2;
 }
 
 // Position
@@ -114,153 +100,11 @@
     }
 }
 
-@mixin container($size: $container, $align: true) {
-    max-width: $size;
-    margin: auto;
-
-    @if $align == left {
-        margin: 0;
-    }
-
-    @if $align == right {
-        margin: 0;
-        margin-left: auto;
-    }
-}
-
-@mixin container-spacing {
-    padding: $space-xs;
-
-    @include bp($screen-sm) {
-        padding: $space-md;
-    }
-
-    @include bp($screen-md) {
-        padding: $space-xl;
-    }
-
-    @include bp($screen-lg) {
-        padding: $space-xxl;
-    }
-}
-
 @mixin middle-align {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     display: inline-block;
-}
-
-// Create close icons
-
-@mixin close-icon(
-    $size: $space-sm,
-    $color: $space,
-    $border: ($size / 10)
-) {
-    @include reset-space;
-    width: $size;
-    height: $size;
-    display: block;
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-
-    &:before, &:after {
-        height: $border;
-        display: block;
-        top: 50%;
-        position: absolute;
-        width: 100%;
-        content: '';
-        background: $color;
-        transition: all 0.15s ease-in-out;
-        margin-top: -($border/2)
-    }
-
-    @include states { &:before, &:after { background: darken($color, 15%); } }
-    &:active { &:before,&:after { transform: rotate(0); }  }
-
-    &:before { transform: rotate(45deg); }
-    &:after { transform: rotate(-45deg); }
-}
-
-// Borders
-@mixin border-top-radius($value: 5px) {
-    border-top-left-radius: $value;
-    border-top-right-radius: $value;
-}
-@mixin border-right-radius($value: 5px) {
-    border-top-right-radius: $value;
-    border-bottom-right-radius: $value;
-}
-@mixin border-bottom-radius($value: 5px) {
-    border-bottom-left-radius: $value;
-    border-bottom-right-radius: $value;
-}
-@mixin border-left-radius($value: 5px) {
-    border-top-left-radius: $value;
-    border-bottom-left-radius: $value;
-}
-
-// Bleed
-@mixin bleed($value: 0, $sides: both) {
-    @if $sides == both {
-        margin: -$value;
-    }
-    @else {
-        @if $sides == horizontal {
-            margin-left: -$value;
-            margin-right: -$value;
-        }
-        @if $sides == vertical {
-            margin-top: -$value;
-            margin-bottom: -$value;
-        }
-        @else {
-            margin: 0;
-        }
-    }
-}
-
-@mixin create-thumnail($thumb-width: 70px, $border: true, $border-color: $border-transparent-lighter) {
-    figure {
-        float: none;
-        display: table;
-        table-layout: fixed;
-        width: 100%;
-
-        @if $border {
-            border-bottom: 2px solid $border-color;
-            &:last-of-type { border-bottom: 0; }
-        }
-
-        .svg-holder {
-            display: table-cell;
-            vertical-align: middle;
-            width: $thumb-width;
-
-            svg {
-                max-width: 85%;
-                margin: auto;
-                display: block;
-            }
-        }
-
-        figcaption {
-            display: table-cell;
-            vertical-align: middle;
-            padding: 0 5%;
-        }
-    }
-}
-
-@mixin text-stroke($size: 1px, $color: black) {
-    text-shadow:
-        (-$size) (-$size) 0 $color,
-        $size (-$size) 0 $color,
-        (-$size) $size 0 $color,
-        $size $size 0 $color;
 }
 
 @mixin fa($icon-unicode){

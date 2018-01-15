@@ -17,7 +17,6 @@ import { DiscoverComponent } from './discover/discover.component';
 import { RemixComponent } from './rounds/remix/remix.component';
 import { LiteratureComponent } from './rounds/literature/literature.component';
 import { BattlesCompletedComponent } from './rounds/battles-completed/battles-completed.component';
-import { ShareResultComponent } from './rounds/share-result/share-result.component';
 import 'hammerjs';
 import { QuestionService } from './services/question.service';
 import { AnswerService } from './services/answer.service';
@@ -41,7 +40,6 @@ import { VideoComponent } from './rounds/answer/video/video.component';
     RemixComponent,
     LiteratureComponent,
     BattlesCompletedComponent,
-    ShareResultComponent,
     DrawingComponent,
     SoundComponent,
     SoundWavesComponent,
@@ -61,6 +59,3 @@ import { VideoComponent } from './rounds/answer/video/video.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-// manifest and json
-// https://medium.com/@cdeniz/transforming-an-existing-angular-application-into-a-progressive-web-app-d48869ba391f

@@ -26,37 +26,38 @@ export class VideoComponent implements AfterViewInit {
     }
   }
 
-captureCamera(callback) {
-    navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(camera) {
-        callback(camera);
-    }).catch(function(error) {
-        alert('Unable to capture your camera. Please check console logs.');
-        console.error(error);
-    });
-}
-stopRecordingCallback(ctx) {
-  this.isRecording = 'recorded';
-  this.inputFilled.emit(true);
-  //  this.video.nativeElement.src = this.video.nativeElement.srcObject = null;
-//    this.video.nativeElement.src = URL.createObjectURL(this.recorder.getBlob());
-    ctx.src = ctx.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(ctx.recorder.getBlob()));
-    ctx.video.nativeElement.load();
-//    ctx.video.nativeElement.play();
-    ctx.recorder.camera.stop();
-    ctx.recorder.destroy();
-    ctx.recorder = null;
-}
-startRecording() {
-  this.isRecording = 'recording';
-  const that = this;
-    this.captureCamera(function(camera) {
+  // Check if camera is working
+  captureCamera(callback) {
+      navigator.mediaDevices.getUserMedia({ audio: true, video: true }).then(function(camera) {
+          callback(camera);
+      }).catch(function(error) {
+          alert('Unable to capture your camera. Please check console logs.');
+          console.error(error);
+      });
+  }
+  stopRecordingCallback(ctx) {
+    this.isRecording = 'recorded';
+    // Send to main component: userinput is filled
+    this.inputFilled.emit(true);
+      // Sanitize (trust) url blob
+      ctx.src = ctx.sanitizer.bypassSecurityTrustUrl(URL.createObjectURL(ctx.recorder.getBlob()));
+      ctx.video.nativeElement.load();
+      ctx.recorder.camera.stop();
+      ctx.recorder.destroy();
+      ctx.recorder = null;
+  }
+  startRecording() {
+    this.isRecording = 'recording';
+    const that = this;
+      this.captureCamera(function(camera) {
+        // Sanitize (trust) url created with camera input
         that.src = that.sanitizer.bypassSecurityTrustUrl(window.URL.createObjectURL(camera));
         that.video.nativeElement.load();
-//        that.video.nativeElement.play();
         that.recorder = RecordRTC(camera, {
             type: 'video'
         });
         that.recorder.startRecording();
+
         // release camera on stopRecording
         that.recorder.camera = camera;
     });
@@ -77,6 +78,7 @@ startRecording() {
   }
   trash() {
     this.isRecording = '';
+    // Send to main component: userinput is emptied
     this.inputEmpty.emit(true);
     this.src = '';
     this.video.nativeElement.load();

@@ -28,12 +28,15 @@ round;
   ) { }
 
   ngOnInit() {
+    // Get and set round
     this.round = this.categoryService.activeCategory;
 
+    // Open info modal if its the first round
     if (this.round === 1) {
       this.modalOpen = true;
     }
 
+    // Subscribe to artworks
     this.route.data.subscribe(a => {
         this.selectedArtwork = a['artwork'];
         this.answers = a['answers'];
@@ -42,32 +45,6 @@ round;
           data: a['question'].payload.data(),
           ref: a['question'].payload.ref
         };
-        // this.categoryService.$activeCategory.subscribe(b => {
-        //   this.activeCategory = b;
-        // });
     });
-    // if (this.currentSound) {
-    //   console.log(this.currentSound);
-    //   this.currentSound.onended = function() {
-    //     console.log('readey');
-    //     this.currentPlay.classList.add('visible');
-    //     this.currentPause.classList.remove('visible');
-    //   };
-    // }
   }
-  // playThis(e) {
-  //   this.currentPlay = e.target.childNodes[1];
-  //   this.currentPause = e.target.childNodes[4];
-  //   this.currentSound = e.target.nextSibling;
-
-  //   if (this.currentSound.paused) {
-  //     this.currentSound.play();
-  //     this.currentPause.classList.add('visible');
-  //     this.currentPlay.classList.remove('visible');
-  //   }else {
-  //     this.currentSound.pause();
-  //     this.currentPlay.classList.add('visible');
-  //     this.currentPause.classList.remove('visible');
-  //   }
-  // }
 }

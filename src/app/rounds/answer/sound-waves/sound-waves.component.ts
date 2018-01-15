@@ -2,6 +2,8 @@ import { Component, ViewChild, ElementRef, AfterViewInit, Output, EventEmitter  
 import { createText } from '@angular/core/src/view/text';
 declare var MediaRecorder: any;
 
+// Based on
+//
 @Component({
   selector: 'app-sound-waves',
   templateUrl: './sound-waves.component.html',
@@ -26,7 +28,6 @@ export class SoundWavesComponent implements AfterViewInit {
   state = 'idle';
   recordedAudio;
 
-  // Variables
   stream = null;
   input = null;
   recorder = null;
@@ -62,10 +63,6 @@ export class SoundWavesComponent implements AfterViewInit {
     // Start the application
     this.requestMicrophoneAccess();
     this.setupPlayer();
-
-    // Add event listeners to the buttons
-    // recordButton.addEventListener('mouseup', this.toggleRecording);
-    // playButton.addEventListener('mouseup', this.togglePlay);
   }
 
   requestMicrophoneAccess() {
@@ -106,7 +103,6 @@ export class SoundWavesComponent implements AfterViewInit {
     ctx.chunks = [];
 
     ctx.audioPlayer.setAttribute('src', ctx.recording);
-    // this.playButton.classList.remove('button--disabled');
     this.recordedAudio = ctx.recording;
     this.downloadButton.nativeElement.setAttribute('href', ctx.recording);
   }
@@ -114,8 +110,6 @@ export class SoundWavesComponent implements AfterViewInit {
   // Start recording
   startRecording() {
     this.isRecording = true;
-    // recordButton.classList.add('button--active');
-
     this.recorder.start();
     this.state = 'recording';
   }
@@ -124,8 +118,6 @@ export class SoundWavesComponent implements AfterViewInit {
   stopRecording() {
     this.isRecording = false;
     this.state = 'done';
-    // recordButton.classList.remove('button--active');
-
     this.recorder.stop();
     this.inputFilled.emit(true);
   }
@@ -217,10 +209,6 @@ export class SoundWavesComponent implements AfterViewInit {
     this.state = 'playing';
 
     this.audioPlayer.play();
-
-    // this.playButton.classList.add('button--active');
-    // this.playButtonIcon.classList.add('fa-pause');
-    // this.playButtonIcon.classList.remove('fa-play');
   }
 
   // Stop the recording
@@ -230,10 +218,6 @@ export class SoundWavesComponent implements AfterViewInit {
 
     this.audioPlayer.pause();
     this.audioPlayer.currentTime = 0;
-
-    // playButton.classList.remove('button--active');
-    // playButtonIcon.classList.add('fa-play');
-    // playButtonIcon.classList.remove('fa-pause');
   }
 
   // Toggle the play button

@@ -1,9 +1,12 @@
-<!-- <div class="page-heading">
-  <h1>Wat denk jij?</h1>
-</div> -->
 
 <ng-container *ngIf="activeQuestion">
-<section class="page-question" *ngIf="activeQuestion.data?.Type !== 'drawing' && activeQuestion.data?.Type !== 'sound'" [class.has-modal-open]="modalTextOpen">
+
+  <!-- Question Text -->
+  <section class="page-question"
+            *ngIf="activeQuestion.data?.Type !== 'drawing' && activeQuestion.data?.Type !== 'sound' && activeQuestion.data?.Type !== 'image'"
+            [class.has-modal-open]="modalTextOpen">
+
+    <!-- Start modal -->
     <a (click)="modalTextOpen = true" class="info info-dark">i</a>
     <div class="modal">
       <a (click)="modalTextOpen = false" class="info info-dark">x</a>
@@ -18,77 +21,85 @@
         </div>
       </div>
     </div>
+    <!-- End modal -->
 
-  <div class="page-inner">
-  </div>
-  <div class="page-content page-question-inner">
-    <div class="box-trans"><h2>{{activeQuestion.data.Title}}</h2></div>
-  </div>
+    <div class="page-inner"></div>
+    <div class="page-content page-question-inner">
+      <div class="box-trans"><h2>{{activeQuestion.data.Title}}</h2></div>
+    </div>
 
-  <div class="page-anwser">
+    <div class="page-anwser">
       <label for="anwser">Jouw antwoord</label>
       <input name="anwser" type="text" [(ngModel)]="answerTxt">
       <a *ngIf="answerTxt.length > 2" class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a>
-  </div>
+    </div>
+  </section>
+  <!-- End Question Text -->
 
-</section>
-
-<section class="answer-draw" *ngIf="activeQuestion.data?.Type === 'drawing'" [class.has-modal-open]="modalDrawOpen">
-  <a (click)="modalDrawOpen = true" class="info">i</a>
-  <div class="modal">
-    <a (click)="modalDrawOpen = false" class="info">x</a>
-    <div class="modal-inner">
-      <div class="modal-content">
-          <h2>Tekenen</h2>
-          <p>
-            Geef antwoord op de vraag in de vorm van een tekening.
-            Je kan tekenen door met je vinger op het scherm te vegen.
-            Links onderin kan je nog de grootte van de punt en de kleur veranderen.
-          </p>
-          <a (click)="modalDrawOpen = false" class="btn">begrepen</a>
+  <!-- Question Drawing -->
+  <section class="answer-draw" *ngIf="activeQuestion.data?.Type === 'drawing'" [class.has-modal-open]="modalDrawOpen">
+    <!-- Start modal -->
+    <a (click)="modalDrawOpen = true" class="info">i</a>
+    <div class="modal">
+      <a (click)="modalDrawOpen = false" class="info">x</a>
+      <div class="modal-inner">
+        <div class="modal-content">
+            <h2>Tekenen</h2>
+            <p>
+              Geef antwoord op de vraag in de vorm van een tekening.
+              Je kan tekenen door met je vinger op het scherm te vegen.
+              Links onderin kan je nog de grootte van de punt en de kleur veranderen.
+            </p>
+            <a (click)="modalDrawOpen = false" class="btn">begrepen</a>
+        </div>
       </div>
     </div>
-  </div>
+    <!-- End modal -->
 
-  <div class="box-trans-abs">
-    <h2 class="type">{{activeQuestion.data.Title}}</h2>
-  </div>
-  <a *ngIf="inputFilled" class="btn btn-primary btn-next" [routerLink]="[activeQuestion.id]">volgende</a>
-  <div class="answer-draw-inner">
-    <app-drawing
-    (inputFilled)="handleInputFilled($event)"
-    (inputEmpty)="handleInputEmpty($event)"
-    (modelOpen)="handleModal($event)"
-    ></app-drawing>
-  </div>
-</section>
+    <div class="box-trans-abs">
+      <h2 class="type">{{activeQuestion.data.Title}}</h2>
+    </div>
+    <a *ngIf="inputFilled" class="btn btn-primary btn-next" [routerLink]="[activeQuestion.id]">volgende</a>
+    <div class="answer-draw-inner">
+      <app-drawing
+      (inputFilled)="handleInputFilled($event)"
+      (inputEmpty)="handleInputEmpty($event)"
+      (modelOpen)="handleModal($event)"
+      ></app-drawing>
+    </div>
+  </section>
+  <!-- End Question Drawing -->
 
-<div class="page page-sound" *ngIf="activeQuestion.data?.Type === 'sound'" [class.has-modal-open]="modalSoundOpen">
-  <a (click)="modalSoundOpen = true" class="info">i</a>
-  <div class="modal">
-    <a (click)="modalSoundOpen = false" class="info">x</a>
-    <div class="modal-inner">
-      <div class="modal-content">
-          <h2>Geluid opnemen</h2>
-          <p>
-            Geef antwoord op de vraag in de vorm van geluid.
-            Leg je vraag uit, fluister het, of maak op een ander manier geluid om uit te beelden wat jij van dit kunstwerk vind.
-          </p>
-          <a (click)="modalSoundOpen = false" class="btn">begrepen</a>
+  <!-- Question Sound -->
+  <div class="page page-sound" *ngIf="activeQuestion.data?.Type === 'sound'" [class.has-modal-open]="modalSoundOpen">
+    <!-- Start modal -->
+    <a (click)="modalSoundOpen = true" class="info">i</a>
+    <div class="modal">
+      <a (click)="modalSoundOpen = false" class="info">x</a>
+      <div class="modal-inner">
+        <div class="modal-content">
+            <h2>Geluid opnemen</h2>
+            <p>
+              Geef antwoord op de vraag in de vorm van geluid.
+              Leg je vraag uit, fluister het, of maak op een ander manier geluid om uit te beelden wat jij van dit kunstwerk vind.
+            </p>
+            <a (click)="modalSoundOpen = false" class="btn">begrepen</a>
+        </div>
       </div>
     </div>
-  </div>
-
+    <!-- End modal -->
 
     <div class="box-trans-abs">
       <h2 class="type">{{activeQuestion.data.Title}}</h2>
     </div>
     <app-sound-waves (inputFilled)="handleInputFilled($event)" (inputEmpty)="handleInputEmpty($event)"></app-sound-waves>
-    <!-- <a *ngIf="drawing" class="btn btn-primary" [routerLink]="[activeQuestion.id]">volgende</a> -->
     <a *ngIf="inputFilled" class="btn btn-primary page-next" [routerLink]="[activeQuestion.id]">volgende</a>
-</div>
+  </div>
+  <!-- End Question Sound -->
 
-<div class="page page-sound" *ngIf="activeQuestion.data?.Type === 'image'" [class.has-modal-open]="modalImageOpen">
+  <!-- Question Image -->
+  <section class="page page-sound" *ngIf="activeQuestion.data?.Type === 'image'" [class.has-modal-open]="modalImageOpen">
+    <!-- Start modal -->
     <a (click)="modalImageOpen = true" class="info">i</a>
     <div class="modal">
       <a (click)="modalImageOpen = false" class="info">x</a>
@@ -103,13 +114,14 @@
         </div>
       </div>
     </div>
+    <!-- End modal -->
 
-  <div class="box-trans-abs">
-    <h2 class="type">{{activeQuestion.data.Title}}</h2>
-  </div>
-  <app-foto></app-foto>
-  <a *ngIf="inputFilled" class="btn btn-primary page-next" [routerLink]="[activeQuestion.id]">volgende</a>
-</div>
+    <div class="box-trans-abs">
+      <h2 class="type">{{activeQuestion.data.Title}}</h2>
+    </div>
+    <app-foto></app-foto>
+    <a *ngIf="inputFilled" class="btn btn-primary page-next" [routerLink]="[activeQuestion.id]">volgende</a>
+  </section>
 </ng-container>
 
 
