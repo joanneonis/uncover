@@ -11,7 +11,6 @@ export class BattlesCompletedComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    // Go to next page after 2 secs
     setTimeout( function(){
       this.router.navigate([`/discover`]);
     }, 2000);

@@ -27,6 +27,8 @@ export class CategoryService {
     const nextCategory = (this.activeCategory) + 1;
     this.activeCategory = nextCategory;
 
+    // const nextCategory = (+localStorage.getItem('activeCategory') || 0);
+    // localStorage.setItem('activeCategory', '2');
     if (this._categories) {
       this.$activeCategory.next(this._categories[(+this.activeCategory - 1)]);
     }

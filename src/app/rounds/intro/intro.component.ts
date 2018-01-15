@@ -4,6 +4,7 @@ import { CategoryService } from '../../services/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArtworkService } from '../../services/artwork.service';
 import { AngularFirestoreDocument, AngularFirestoreCollection, DocumentChangeAction } from 'angularfire2/firestore';
+import ColorThief from 'color-thief-standalone';
 import * as $ from 'jquery';
 @Component({
   selector: 'app-intro',
@@ -20,6 +21,7 @@ export class IntroComponent implements OnInit, AfterViewInit {
   selectedArtwork: any;
   artworks: any[];
   showCategory;
+  colorThief = new ColorThief();
   isDrawing;
   lastPoint;
   container    = document.getElementById('container');
@@ -176,7 +178,6 @@ ngOnInit() {
     }
   });
 
-  // Get categories
   this.categoryService.getCategories().subscribe(a => {
     this.categories = a;
   });
@@ -190,7 +191,6 @@ ngOnInit() {
     this.modalScratchOpen = true;
   }
 
-  // Show artworks based on round
   switch (this.round) {
     case 0:
         this.image.src = '/assets/img/parts/resized/Lijst-met-appels.png';

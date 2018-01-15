@@ -1,14 +1,12 @@
 
 
 <section class="page-video">
-  <div class="page-inner"></div>
+  <div class="page-inner">
+  </div>
   <div class="box-trans-abs">
       <h2>Jouw kritisch oog is nu gegroeid! Maak hier een foto van om het spel af te ronden.</h2>
   </div>
 
-  <!-- Get video component and handle if the userinput is empty of not -->
   <app-video (inputFilled)="handleInputFilled($event)" (inputEmpty)="handleInputEmpty($event)"></app-video>
-
-  <!-- If userinput is not empty, you may go to the next round -->
   <button *ngIf="inputFilled" [routerLink]="'/battles-completed'" class="btn btn-primary page-next">volgende</button>
 </section>

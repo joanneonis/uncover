@@ -9,6 +9,7 @@ import { DiscoverComponent } from './discover/discover.component';
 import { BattlesCompletedComponent } from './rounds/battles-completed/battles-completed.component';
 import { LiteratureComponent } from './rounds/literature/literature.component';
 import { RemixComponent } from './rounds/remix/remix.component';
+import { ShareResultComponent } from './rounds/share-result/share-result.component';
 import { ArtworkService } from './services/artwork.service';
 import { QuestionService } from './services/question.service';
 import { AnswerService } from './services/answer.service';
@@ -69,6 +70,10 @@ const routes: Routes = [
   {
     path: 'battles-completed',
     component: BattlesCompletedComponent
+  },
+  {
+    path: 'share-result',
+    component: ShareResultComponent
   },
   {
     path: 'discover',

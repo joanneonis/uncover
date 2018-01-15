@@ -37,20 +37,21 @@ html, body, *{
 @import 'components/modal';
 @import 'components/page-elements/page-header';
 @import 'components/page-elements/page-nav';
-@import 'components/draw-menu';
 
 //layout - page styles
 @import 'layout/page-base';
-@import 'layout/page-login';
-@import 'layout/page-scratch';
-@import 'layout/page-remix';
-@import 'layout/page-scan';
-@import 'layout/page-category';
+@import 'layout/login';
+@import 'layout/wheel';
+@import 'layout/remix';
+@import 'layout/scan';
+@import 'layout/category';
 @import 'layout/page-question';
 @import 'layout/page-anwsers-others';
+@import 'layout/answer-drawing';
+@import 'layout/drawing/color-palette';
+@import 'layout/page-sound';
 @import 'layout/page-discover';
+@import 'layout/video';
 @import 'layout/page-welcome';
 
-@import 'layout/answer-types/answer-drawing';
-@import 'layout/answer-types/answer-video';
-@import 'layout/answer-types/answer-sound';
+

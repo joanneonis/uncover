@@ -19,6 +19,8 @@ export class QuestionService implements Resolve<any> {
 
     const artwork = this.getQuestions(artworkId);
 
+
+
     return new Promise((r, reject) => {
       artwork.first().subscribe((a) => {r(a); }, reject);
     });
@@ -26,12 +28,10 @@ export class QuestionService implements Resolve<any> {
 
   constructor(private db: AngularFirestore) {}
 
-  // Get questions
   getQuestions(artworkId: string) {
     return this.db.collection(`artworks/${artworkId}/Questions`).snapshotChanges();
   }
 
-  // Get questions by id
   getById (artworkId: string, id: string) {
     return this.db.doc(`/artworks/${artworkId}/Questions/${id}`).snapshotChanges();
   }
