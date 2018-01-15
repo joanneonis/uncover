@@ -17,6 +17,7 @@ export class DiscoverComponent implements OnInit {
   content;
   test;
   questions;
+  allQuestions: any[] = [];
   activeCat = '1';
   questionsRef;
   updateCat;
@@ -64,13 +65,19 @@ export class DiscoverComponent implements OnInit {
     this.questions = [];
 
     this.questionsRef.snapshotChanges().subscribe(data => {
-      this.questions = data.map(d => ({  id: d.payload.doc.id, data: d.payload.doc.data() }));
-      this.questions = this.questions.filter(b => b.data.CategorieId === this.activeCat);
+      this.allQuestions = data.map(d => ({  id: d.payload.doc.id, data: d.payload.doc.data() }));
+      this.activeCat = this.allQuestions.filter(a => a.data.LiteratureText)[0].data.CategorieId;
+      this.questions = this.allQuestions.filter(b => b.data.CategorieId === this.activeCat);
     });
   }
 
   newcat() {
     this.activeCat = this.updateCat;
-    this.update(this.activeId);
+    this.questions = this.allQuestions.filter(b => b.data.CategorieId === this.activeCat);
+  }
+
+  hasAny(e): boolean {
+    const any = this.allQuestions.findIndex(a => a.data.CategorieId === `${e}` && a.data.LiteratureText) >= 0;
+    return any;
   }
 }
