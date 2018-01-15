@@ -13,7 +13,7 @@ export class ArtworkService implements Resolve<any> {
 
     // Subscribe to artworks
     return new Promise((r, reject) => {
-      artwork.first().subscribe((a) => {r(a); }, reject);
+      artwork.valueChanges().first().subscribe((a) => {r(a); }, reject);
     });
   }
 
@@ -26,6 +26,6 @@ export class ArtworkService implements Resolve<any> {
 
   // Retrieve artworks by id function
   getById (id: string) {
-    return this.db.doc(`/artworks/${id}`).valueChanges();
+    return this.db.doc(`/artworks/${id}`);
   }
 }

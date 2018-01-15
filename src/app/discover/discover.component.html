@@ -12,21 +12,21 @@
         </owl-carousel>
     </div>
    <div class="layers-buttons">
-      <a class="btn btn-secondary btn-xs active">Vorm</a>
-      <a class="btn btn-secondary btn-xs">Inhoud</a>
-      <a class="btn btn-secondary btn-xs">Functie</a>
-      <a class="btn btn-secondary btn-xs">Context</a>
-      <a class="btn btn-secondary btn-xs">Samenhang</a>
-      <a class="btn btn-secondary btn-xs">Betekenis</a>
-      <a class="btn btn-secondary btn-xs">Beteknis maker</a>
+      <a (click)="updateCat = '1'; newcat()" [class.active]="activeCat == '1'" class="btn btn-secondary btn-xs">Vorm</a>
+      <a (click)="updateCat = '2'; newcat()" [class.active]="activeCat == '2'" class="btn btn-secondary btn-xs">Inhoud</a>
+      <a (click)="updateCat = '3'; newcat()" [class.active]="activeCat == '3'" class="btn btn-secondary btn-xs">Functie</a>
+      <a (click)="updateCat = '4'; newcat()" [class.active]="activeCat == '4'" class="btn btn-secondary btn-xs">Context</a>
+      <a (click)="updateCat = '5'; newcat()" [class.active]="activeCat == '5'" class="btn btn-secondary btn-xs">Samenhang</a>
+      <a (click)="updateCat = '7'; newcat()" [class.active]="activeCat == '7'" class="btn btn-secondary btn-xs">Betekenis</a>
+      <a (click)="updateCat = '8'; newcat()" [class.active]="activeCat == '8'" class="btn btn-secondary btn-xs">Beteknis maker</a>
    </div>
   </header>
   <section class="slider-content">
     <blockquote>
-        {{artworks[activeItem].data.LiteratureTitle}}
+        {{questions[0]?.data.LiteratureTitle}}
     </blockquote>
     <p>
-      {{artworks[activeItem].data.LiteratureText}}
+      {{questions[0]?.data.LiteratureText}}
     </p>
   </section>
 </section>
