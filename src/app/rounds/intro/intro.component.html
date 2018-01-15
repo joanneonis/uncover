@@ -1,6 +1,5 @@
 
 <section class="section-wheel" *ngIf="!selectedArtwork" [class.has-modal-open]="modalScratchOpen">
-  <!-- Start modal -->
   <a (click)="modalScratchOpen = true" class="info">i</a>
   <div class="modal">
     <a (click)="modalScratchOpen = false" class="info">x</a>
@@ -15,70 +14,113 @@
       </div>
     </div>
   </div>
-  <!-- End modal -->
 
-  <!-- Background image: Tim walker artwork -->
-  <div id="container" [style.background-image]="'url(' + backImage + ')'"></div>
+  <div id="container" [style.background-image]="'url(' + backImage + ')'">
 
-  <!-- Top layer which can be scratched off: Jeroen Bosch -->
+  </div>
+
+  <!--   (touchmove)="handleTouchMove($event)"
+  (touchend)="handleMouseUp($event)"
+  (press)="handleTouchMove($event)"
+ -->
+
   <canvas
-    id="scratch"
-    (mousedown)="handleMouseDown($event)"
-    (mousemove)="handleMouseMove($event)"
-    (mouseup)="handleMouseUp($event)"
-    (touchmove)="handleTouchMove($event)"
-    #canvas
-    [attr.width]="canvasWidth"
-    [attr.height]="canvasHeight">
-  </canvas>
+  id="scratch"
+  (mousedown)="handleMouseDown($event)"
+  (mousemove)="handleMouseMove($event)"
+  (mouseup)="handleMouseUp($event)"
+  (touchmove)="handleTouchMove($event)"
+  #canvas
+  [attr.width]="canvasWidth"
+  [attr.height]="canvasHeight"></canvas>
+
+  <!--  (touchstart)="handleTouchStart($event)" (touchend)="handleTouchEnd($event)"
+ -->
+
+  <!-- <button class="btn btn-primary page-next" (click)="randomArtwork()">Volgende</button> -->
 </section>
+<!--
+<nav>
+  <ul>
+    <li [routerLink]="'/intro'"> intro (huidig)</li>
+    <li [routerLink]="'/answer'">answer</li>
+    <li [routerLink]="'/answers-others'">answers-others</li>
+    <li [routerLink]="'/remix'">remix</li>
+    <li [routerLink]="'/literature'">literature</li>
+    <li [routerLink]="'/battles-completed'">battles klaar</li>
+    <li [routerLink]="'/share-result'">share</li>
+    <li [routerLink]="'/discover'">ontdek achteraf</li>
+  </ul>
+</nav> -->
+
+ <!-- <img src="assets/img/layers/back.png" id="testImage" alt="" #colorTest> -->
+
+<!-- <div *ngFor="let a of artworks">
+  {{a.id}}: {{a.data | json}}
+</div> -->
+
+
+  <!-- <button class="btn btn-primary page-next" (click)="randomArtwork()">Volgende</button> -->
 
 <section class="page page-scan" *ngIf="selectedArtwork && !showCategory" [class.has-modal-open]="modalScanOpen">
-  <!-- Start modal -->
-  <a (click)="modalScanOpen = true" class="info info-dark">i</a>
-  <div class="modal">
-    <a (click)="modalScanOpen = false" class="info info-dark">x</a>
-    <div class="modal-inner">
-      <div class="modal-content">
-          <h2>Scannen</h2>
-          <p>
-            <em>Dit is voor nu een simulatie.</em>
-            Als je de camera aan hebt en deze richt op het schilderij, herktent de app waar je bent, en kan je de {{round}}e ronde beginnen.
-          </p>
-          <a (click)="modalScanOpen = false" class="btn">begrepen</a>
+    <a (click)="modalScanOpen = true" class="info info-dark">i</a>
+    <div class="modal">
+      <a (click)="modalScanOpen = false" class="info info-dark">x</a>
+      <div class="modal-inner">
+        <div class="modal-content">
+            <h2>Scannen</h2>
+            <p>
+              <em>Dit is voor nu een simulatie.</em>
+              Als je de camera aan hebt en deze richt op het schilderij, herktent de app waar je bent, en kan je de {{round}}e ronde beginnen.
+            </p>
+            <a (click)="modalScanOpen = false" class="btn">begrepen</a>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- End modal -->
 
   <div class="page-heading">
     <h1 class="h3">Scan het kunstwerk</h1>
     <p>Mik de camera op het kunstwerk en de rest gaat vanzelf.</p>
   </div>
-  <div class="scan-artwork" [style.background-image]="'url(' + (selectedArtwork).scanImage + ')'"></div>
-  <a class="btn btn-primary page-next" (click)="showCategory = true">Volgende</a>
+  <div class="scan-artwork" [style.background-image]="'url(' + (selectedArtwork).image + ')'"></div>
+  <!-- {{selectedArtwork | async | json}} -->
+
+<a class="btn btn-primary page-next" (click)="showCategory = true">Volgende</a>
+
 </section>
 
+<!-- <section class="page-category" *ngIf="showCategory">
+    <div class="page-content page-category-inner">
+        <h2 class="type">{{ (activeCategory | async).Title }}</h2>
+        <p>
+          {{ (activeCategory | async).Text}}
+        </p>
+
+        <a [routerLink]="'answer'" class="btn btn-primary">Volgende</a>
+    </div>
+
+
+</section> -->
+
+
 <div class="page page-category" *ngIf="showCategory" [class.has-modal-open]="modalRoundOpen">
-  <!-- Start modal -->
-  <a (click)="modalRoundOpen = true" class="info info-dark">i</a>
-  <div class="modal">
-    <a (click)="modalRoundOpen = false" class="info info-dark">x</a>
-    <div class="modal-inner">
-      <div class="modal-content">
-          <h2>Ronde informatie</h2>
-          <p>
-            Dit is de informatie over de vraag die je gaat krijgen.
-            Dus neem deze informatie goed in je op!
-          </p>
-          <a (click)="modalRoundOpen = false" class="btn">begrepen</a>
+    <a (click)="modalRoundOpen = true" class="info info-dark">i</a>
+    <div class="modal">
+      <a (click)="modalRoundOpen = false" class="info info-dark">x</a>
+      <div class="modal-inner">
+        <div class="modal-content">
+            <h2>Ronde informatie</h2>
+            <p>
+              Dit is de informatie over de vraag die je gaat krijgen.
+              Dus neem deze informatie goed in je op!
+            </p>
+            <a (click)="modalRoundOpen = false" class="btn">begrepen</a>
+        </div>
       </div>
     </div>
-  </div>
-  <!-- End modal -->
 
   <div class="page-inner">
-      <h2 class="type category-title">{{ (activeCategory | async).Title}}<small>Ronde {{round}} van 8</small></h2>
+      <h2 class="type">{{ (activeCategory | async).Title}}<small>Ronde {{round}} van 8</small></h2>
       <p>
         {{ (activeCategory | async).Text}}
       </p>
