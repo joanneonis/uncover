@@ -1,0 +1,27 @@
+
+//500 is normaal, de rest is lichter en donkerder
+
+$colors: (
+  primary: (
+    500: #2C527B,
+  ),
+  white: (
+      500: #fff
+  ),
+  grey: (
+      200: #EEEEEE,
+      300: #F1F1F1,
+      400: #D1D1D1,
+      500: #9D9D9D,
+      700: #0D0D0D
+  ),
+  social: (
+    facebook: #4267b2,
+    google: #ea4335,
+    mail: #9D9D9D,
+    twitter: #1ea1f2,
+    instagram: -webkit-radial-gradient(50px 220px, #ffda75 18%, #ff3a49 43%, #ff3a49 50%, #e518a1 70%, #6634e1 100%),
+    whatsapp:#25d366,
+
+  )
+);

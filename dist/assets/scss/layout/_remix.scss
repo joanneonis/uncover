@@ -1,0 +1,34 @@
+.share-btn {
+    padding: 10px;
+    padding-bottom: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-decoration: none;
+    margin: 5px 10px;
+    border-radius: 50%;
+  }
+
+iframe{
+  @include abs(0);
+  width: 100%;
+  height: 100vh;
+}
+
+.page-remix{
+  .btn-tertiary{
+    position: absolute;
+    z-index: 2;
+    left: 20px;
+    bottom: 20px;
+  }
+  .page-next{
+    width: calc(100% - 90px);
+    left: auto;
+    padding: 12px 12px;
+  }
+}
+
+.draw-menu.share-buttons {
+  left: -19px;
+  bottom: 52px;
+}

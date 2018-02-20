@@ -1,0 +1,41 @@
+
+@include h{
+  font-family: $heading-font;
+  font-weight: 500;
+  margin-top: 0;
+
+  sup{
+    text-transform: none;
+  }
+  &.small{
+    text-transform: none;
+  }
+
+  small {
+    display: block;
+    font-family: sans-serif;
+    font-size: 14px;
+    letter-spacing: 0;
+    margin-top: 4px;
+    color: color(grey, 500);
+  }
+}
+
+h1, h1{
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+h2, .h2 {
+  font-size: 1.6em;
+  letter-spacing: 4px;
+  margin-bottom: .45em;
+}
+
+h3, .h3{
+  font-size: 1.1em;
+  margin-bottom: .5em;
+}
+
+
+

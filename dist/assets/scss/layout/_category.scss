@@ -1,0 +1,45 @@
+
+.page-category{
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  &-inner{
+
+  }
+
+   img{
+    width: 120vw;
+    height: auto;
+    margin-left: calc(-20vw + -20px);
+    margin-bottom: -10vw;
+   }
+  }
+
+
+  .page-literature{
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    height: auto;
+
+    .info-dark {
+      background: #fff;
+    }
+
+    &-inner {
+      margin: 11vw;
+      text-align: center;
+      border: 3px solid black;
+      padding: 20px;
+      min-height: 88vh;
+    }
+
+     img{
+      width: 120vw;
+      height: auto;
+      margin-left: calc(-20vw + -20px);
+      margin-bottom: -10vw;
+     }
+    }

@@ -1,0 +1,17 @@
+
+.page-login{
+
+  .btn-social {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+
+  .login-buttons{
+    @include centralize;
+    width: calc(100% - 30px);
+    top: 80vh;
+    z-index: 2;
+  }
+}
+

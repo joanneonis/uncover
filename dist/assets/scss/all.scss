@@ -1,0 +1,57 @@
+body{
+  margin: 0;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+//cancel the pull refresh on chrome android
+html, body, *{
+  overscroll-behavior-y: contain;
+}
+
+
+
+//vendor - external packages (DO NOT EDIT)
+@import '../vendor/web-fonts-with-css/scss/fontawesome.scss';
+
+//mixins - used my normal mixins, collected and made
+@import 'mixins/handy';
+
+//functions
+@import 'functions/colors';
+
+//setting - mostly variables
+@import 'settings/type';
+@import 'settings/colors';
+
+//component - reusable elements
+@import 'components/box';
+@import 'components/type/font';
+@import 'components/type/type';
+@import 'components/type/headings';
+@import 'components/btn/basic';
+@import 'components/btn/social';
+@import 'components/form';
+@import 'components/modal';
+@import 'components/page-elements/page-header';
+@import 'components/page-elements/page-nav';
+
+//layout - page styles
+@import 'layout/page-base';
+@import 'layout/login';
+@import 'layout/wheel';
+@import 'layout/remix';
+@import 'layout/scan';
+@import 'layout/category';
+@import 'layout/page-question';
+@import 'layout/page-anwsers-others';
+@import 'layout/answer-drawing';
+@import 'layout/drawing/color-palette';
+@import 'layout/page-sound';
+@import 'layout/page-discover';
+@import 'layout/video';
+@import 'layout/page-welcome';
+
+
