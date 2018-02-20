@@ -1,0 +1,53 @@
+
+
+@keyframes test{
+  0% {top: 2vh}
+  50% {top: 80vh}
+  100% {top: 3vh}
+}
+
+.scan-artwork {
+  height: calc(81vh + 10px);
+  background-size: cover;
+  background-color: #ccc;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  &:before {
+    content: "";
+    height: 5px;
+    width: 100%;
+    background: red;
+    position: absolute;
+    left: -4px;
+    right: 0;
+    top: 0;
+    animation: test 3s infinite;
+    animation-fill-mode: forwards;
+    border: 4px solid rgba(red, .4);
+    background-clip: content-box;
+    will-change: top;
+    -webkit-transform: translateZ(0);
+  }
+  &:after{
+    @include abs(-90px,0,auto,0);
+    content: "";
+    background-image: url('/assets/img/paper-4.png');
+    height: 30vh;
+    background-size: 100% auto;
+    background-position: top;
+    background-repeat: no-repeat;
+    z-index: 1;
+  }
+}
+
+.page-scan .page-heading {
+  height: calc(19vh - 30px);
+  overflow: hidden;
+  z-index: 900;
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: -10px;
+}
+

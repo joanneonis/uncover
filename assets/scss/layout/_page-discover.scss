@@ -1,0 +1,63 @@
+
+.page-discover{
+
+  .page-title{
+    text-align: center;
+    color: white;
+  }
+
+  header{
+    background-image: url('/assets/img/literature-background.png');
+    background-size: auto 100%;
+    padding: 20px 20px 100px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.layers-buttons{
+  text-align: center;
+
+  .btn{
+    margin: 3px;
+
+    &.active{
+      background: #3a88ac;
+      color: #fff;
+    }
+  }
+}
+.slider {
+  width: 100vw;
+  overflow: hidden;
+  margin-left: -20px;
+  margin-bottom: 20px;
+}
+
+.owl-carousel{
+  display: block;
+  width: 140vw;
+  margin-left: 15vw;
+
+  *{
+    box-sizing: border-box;
+  }
+  .item {
+    padding: 0 10px;
+  }
+  img {
+    width: 100%;
+    border: 5px solid white;
+  }
+}
+
+.slider-content {
+  padding: 30px;
+
+  p {
+    font-size: 1.2em;
+    font-weight: 100;
+    line-height: 1.5;
+    color: #585858;
+  }
+}

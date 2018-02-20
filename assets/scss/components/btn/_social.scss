@@ -1,0 +1,39 @@
+
+
+//rond
+.btn-share{
+  width: 40px;
+  text-align: center;
+  height: 40px;
+  padding: 0;
+  text-align: center;
+  line-height: 40px;
+}
+
+
+//home langwerpig
+.btn[data-social]{
+  color: white;
+  transition: background .2s;
+}
+
+$social-map: map-get($colors, social);
+
+@each $name, $color in $social-map {
+  .btn[data-social='#{$name}']{
+    background: $color;
+
+    @if ($name == 'instagram'){
+      &:hover{
+     background: -webkit-radial-gradient(50px 220px, #f7c437 18%, #fa1225 43%, #d82635 50%, #970f6a 70%, #6634e1 100%);
+    }
+  }
+
+    @else {
+      &:hover{
+        background: darken($color, 15%);
+        }
+    }
+    
+  }
+}

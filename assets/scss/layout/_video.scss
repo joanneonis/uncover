@@ -1,0 +1,37 @@
+
+
+.page-video{
+  background-image: url('/assets/img/video-paper.png');
+  background-size: contain;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  video{
+    @include abs(0);
+    height: 100vh;
+    width: 100%;
+    pointer-events: none;
+  }
+}
+
+.start-video{
+  @include centralize;
+}
+.video-overlay{
+  display: none;
+  @include abs(0);
+  background-color: black;
+  z-index: 3;
+
+  &.recording, &.recorded, &.playing, &.open{
+    display: block;
+  }
+}
+
+.video-controls{
+  @include centralize;
+}
+.video-overlay.recorded video {
+  filter: blur(11px);
+}

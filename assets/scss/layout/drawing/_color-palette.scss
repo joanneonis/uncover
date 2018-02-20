@@ -1,0 +1,58 @@
+
+$palette-number: 6;
+$palette-animation-duration: .05s;
+
+@keyframes animate-up{
+  0% {transform: translate(0, 20px); opacity: 0}
+  100% {transform: translate(0, 0); opacity: 1}
+}
+
+.draw-menu {
+  position: absolute;
+  bottom: 31px;
+  left: 4px;
+
+  li {
+    opacity: 0;
+    display: block;
+    margin-bottom: 6px;
+    animation: animate-up ($palette-number*$palette-animation-duration);
+    animation-fill-mode: forwards;
+  }
+}
+
+@for $i from 1 to 10 {
+  .draw-menu li:nth-child(#{$i}) { animation-delay: ($palette-number*$palette-animation-duration) - $i * $palette-animation-duration; }
+}
+
+
+.pencil-sizes{
+  left: -40px;
+
+  li {
+    position: relative;
+
+    span{
+      background: white;
+      border-radius: 100px;
+      display: block;
+      @include abs(0);
+      margin: auto;
+
+      &[data="5"] {
+        @include size(5px);
+      }
+      &[data="10"] {
+        @include size(10px);
+      }
+      &[data="20"] {
+        @include size(20px);
+      }
+      &[data="30"] {
+        @include size(30px);
+      }
+    }
+  }
+}
+
+
