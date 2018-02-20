@@ -2,7 +2,7 @@
 .page-welcome{
   @include abs(0);
   overflow: hidden;
-  background-image: url('/assets/img/paper-5.png');
+  background-image: url('assets/img/paper-5.png');
   background-size: cover;
 
   &_inner {
