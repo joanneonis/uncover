@@ -9,8 +9,8 @@
       "urls": [
         "https://joanneonis.github.io/uncover/favicon.ico",
         "https://joanneonis.github.io/uncover/index.html",
-        "https://joanneonis.github.io/uncover/inline.acb037d0e6b75e78d9c0.bundle.js",
-        "https://joanneonis.github.io/uncover/main.8a480e881584d0c546f2.bundle.js",
+        "https://joanneonis.github.io/uncover/inline.80753240dc4122914fb7.bundle.js",
+        "https://joanneonis.github.io/uncover/main.bd28d2d274267445e9e5.bundle.js",
         "https://joanneonis.github.io/uncover/polyfills.f039bbc7aaddeebcb9aa.bundle.js",
         "https://joanneonis.github.io/uncover/scripts.8b498554262811c8dfb6.bundle.js",
         "https://joanneonis.github.io/uncover/styles.e98ca52750e8fef041a2.bundle.css"
@@ -207,9 +207,9 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://joanneonis.github.io/uncover/inline.acb037d0e6b75e78d9c0.bundle.js": "3b0892d1a95db373c76eb13878db820f9cdea7d3",
+    "https://joanneonis.github.io/uncover/inline.80753240dc4122914fb7.bundle.js": "ae54d789912b357daa3f2941ac19d0a0aad16b0b",
     "https://joanneonis.github.io/uncover/assets/manifest.json": "b8501876bd7cc01c857c1e190a88d9ed86efab34",
-    "https://joanneonis.github.io/uncover/main.8a480e881584d0c546f2.bundle.js": "d6ba6d1ed5027ddf0054c62205186feaa3fa944d",
+    "https://joanneonis.github.io/uncover/main.bd28d2d274267445e9e5.bundle.js": "ac7a59d5bb98c0e81f79e44e7153b73d400e3009",
     "https://joanneonis.github.io/uncover/assets/img/answers-bg.png": "44a1009488d8ca3e70b3301c14820294ab728e9e",
     "https://joanneonis.github.io/uncover/polyfills.f039bbc7aaddeebcb9aa.bundle.js": "669df48deb7f2148518a6e8e9490ba8ee2db7000",
     "https://joanneonis.github.io/uncover/assets/img/brush-2.png": "a1f1d2729bbdfba831af9310be12546365047dca",
@@ -219,7 +219,7 @@
     "https://joanneonis.github.io/uncover/assets/img/draw-overlay.png": "d0f6ca02193c99b6e57d0f6225f87929259564bd",
     "https://joanneonis.github.io/uncover/favicon.ico": "4255c4bc53bcc6b999e324166034b03af87e5fed",
     "https://joanneonis.github.io/uncover/assets/img/draw-resized.png": "0450024707b4ebb3fda43ac272d320a77581ab9d",
-    "https://joanneonis.github.io/uncover/index.html": "5e79caabef54d28d7b12f7f35c4d09a7f529f063",
+    "https://joanneonis.github.io/uncover/index.html": "22f1e93f4f539fb5e5ec9f45a528713614c0e0a4",
     "https://joanneonis.github.io/uncover/assets/img/drawing-tear.png": "0e1f89f0a4000261c96d40ec95ba086765242b6e",
     "https://joanneonis.github.io/uncover/assets/img/garden-mobile-s.png": "0aeaf943f9fe3b93dd54639f032b0ec593206c46",
     "https://joanneonis.github.io/uncover/assets/img/link.png": "6a8ce7c6e03cc61a9cdb66588f28de090c46972e",

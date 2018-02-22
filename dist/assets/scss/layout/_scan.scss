@@ -33,7 +33,7 @@
   &:after{
     @include abs(-90px,0,auto,0);
     content: "";
-    background-image: url('assets/img/paper-4.png');
+    background-image: url('/assets/img/paper-4.png');
     height: 30vh;
     background-size: 100% auto;
     background-position: top;
